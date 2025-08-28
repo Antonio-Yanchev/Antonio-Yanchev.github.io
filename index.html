@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Toni Yanchev — Portfolio</title>
+  <meta name="description" content="Portfolio of Toni Yanchev — Computer Science graduate and aspiring Frontend/Full‑Stack Developer." />
+
+  <!-- Open Graph / LinkedIn preview -->
+  <meta property="og:title" content="Toni Yanchev — Portfolio" />
+  <meta property="og:description" content="Projects, education, skills, and contact." />
+  <!-- Replace this with a real image in your repo root, e.g. /og-image.png -->
+  <meta property="og:image" content="https://raw.githubusercontent.com/Antonio-Yanchev/Antonio-Yanchev.github.io/main/og-image.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://Antonio-Yanchev.github.io" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{
+      --bg:#0b0f19; --card:#12192b; --text:#e9edf7; --muted:#a8b3c7; --accent:#7aa2ff; --accent-2:#9bffe0;
+      --ring: rgba(122,162,255,.45);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; background:var(--bg); color:var(--text); font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1000px; margin:0 auto; padding:28px}
+    header{display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+    nav a{margin-left:14px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .avatar{width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg, var(--accent), var(--accent-2)); filter:saturate(1.1)}
+    .tag{color:var(--muted); font-size:.95rem}
+
+    .hero{margin-top:18px; padding:28px; border:1px solid rgba(255,255,255,.07); border-radius:18px;
+      background: radial-gradient(1200px 500px at 0% -10%, rgba(122,162,255,.16), transparent 60%),
+                 radial-gradient(900px 400px at 100% 0%, rgba(155,255,224,.08), transparent 60%),
+                 var(--card);
+    }
+    h1{margin:0 0 10px; font-size:clamp(28px, 4vw, 40px)}
+    .sub{color:var(--muted)}
+    .pills{margin-top:8px}
+    .pill{display:inline-block; padding:6px 10px; margin:6px 8px 0 0; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); font-size:.9rem}
+
+    section{margin-top:34px}
+    h2{font-size:1.4rem; margin:0 0 12px}
+
+    .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px}
+    .card{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:18px}
+    .card h3{margin:.2rem 0 .4rem}
+    .card p{margin:.2rem 0 .6rem; color:var(--text)}
+    .meta{color:var(--muted); font-size:.95rem}
+
+    .list{display:grid; gap:8px}
+    .row{display:flex; gap:10px; align-items:flex-start}
+    .row .k{min-width:120px; color:var(--muted)}
+
+    .footer{margin-top:40px; color:var(--muted); font-size:.95rem}
+    .btn{display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04)}
+    .btn:focus{outline:2px solid var(--ring); outline-offset:2px}
+    .cta{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:14px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <div class="tag">👋 Hi, I'm</div>
+          <strong style="font-size:1.15rem">Toni Yanchev</strong>
+        </div>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Computer Science Graduate • Frontend / Full‑Stack Developer</h1>
+      <p class="sub">Based in London, UK. I build fast, clean web apps with React, TypeScript, and Firebase. Open to junior developer and graduate roles.</p>
+      <div class="pills" aria-label="Key skills">
+        <span class="pill">React</span>
+        <span class="pill">TypeScript</span>
+        <span class="pill">Ionic</span>
+        <span class="pill">Firebase</span>
+        <span class="pill">Python</span>
+        <span class="pill">Java</span>
+        <span class="pill">SQL</span>
+      </div>
+      <div class="cta">
+        <a class="btn" href="#projects">View Projects</a>
+        <a class="btn" href="/CV.pdf" aria-label="Download CV PDF">Download CV</a>
+        <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/LINKEDIN_HANDLE/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Selected Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Fit‑Trak</h3>
+          <p>Ionic React + Firebase web app for meal & workout tracking, integrated with USDA FoodData and OpenAI for plan generation.</p>
+          <p class="meta">Ionic • React • Firebase • REST APIs</p>
+          <p><a href="https://github.com/Antonio-Yanchev/fit-trak" target="_blank" rel="noreferrer">Code</a> · <a href="https://Antonio-Yanchev.github.io/fit-trak/" target="_blank" rel="noreferrer">Live</a></p>
+        </article>
+        <article class="card">
+          <h3>Taxi Dispatch Simulation</h3>
+          <p>Python agent-based sim with A* pathfinding and dispatcher logic optimizing taxi idle time and fares.</p>
+          <p class="meta">Python • A* • Simulation</p>
+          <p><a href="https://github.com/Antonio-Yanchev/robo-uber" target="_blank" rel="noreferrer">Code</a></p>
+        </article>
+        <article class="card">
+          <h3>Penguins ML</h3>
+          <p>kNN vs Naïve Bayes with cross‑validation, PCA, confusion matrices and ROC analysis on the Palmer Penguins dataset.</p>
+          <p class="meta">R • ML • Data Visualization</p>
+          <p><a href="https://github.com/Antonio-Yanchev/penguins-ml" target="_blank" rel="noreferrer">Code</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="card">
+        <div class="row"><div class="k">Degree</div><div><strong>BSc (Hons) Computer Science</strong> — Oxford Brookes University</div></div>
+        <div class="row"><div class="k">Classification</div><div>2:1 (≈67%)</div></div>
+        <div class="row"><div class="k">Highlights</div><div>Dissertation: Fit‑Trak; Coursework: Taxi Dispatch Simulation; Penguins ML.</div></div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Languages</h3>
+          <p>JavaScript/TypeScript, Python, Java, SQL, HTML, CSS, C/C++ (basic), XML.</p>
+        </div>
+        <div class="card">
+          <h3>Frameworks & Tools</h3>
+          <p>React, Ionic, Firebase, Git/GitHub. Learning: AWS, Jira.</p>
+        </div>
+        <div class="card">
+          <h3>Strengths</h3>
+          <p>UI implementation, clean code, API integration, debugging, collaboration.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a> ·
+        <a href="https://github.com/Antonio-Yanchev" target="_blank" rel="noreferrer">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/LINKEDIN_HANDLE/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </p>
+    </section>
+
+    <div class="footer">© <span id="year"></span> Toni Yanchev • Last updated <span id="updated"></span></div>
+  </div>
+
+  <script>
+    const y = document.getElementById('year');
+    const u = document.getElementById('updated');
+    const d = new Date();
+    y.textContent = d.getFullYear();
+    u.textContent = d.toLocaleDateString(undefined, { year:'numeric', month:'short' });
+  </script>
+
+  <!-- Optional: basic structured data for better search previews -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Toni Yanchev",
+    "url": "https://Antonio-Yanchev.github.io",
+    "jobTitle": "Frontend / Full‑Stack Developer",
+    "address": {"@type":"PostalAddress","addressLocality":"London","addressCountry":"UK"},
+    "sameAs": [
+      "https://github.com/Antonio-Yanchev",
+      "https://www.linkedin.com/in/LINKEDIN_HANDLE/"
+    ]
+  }
+  </script>
+</body>
+</html>
