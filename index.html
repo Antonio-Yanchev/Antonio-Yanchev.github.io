@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Toni Yanchev — Software Developer Portfolio</title>
-  <meta name="description" content="Portfolio of Toni Yanchev — Computer Science graduate (2:1) and aspiring Frontend/Full-Stack Developer. Projects, education, skills, and contact." />
+  <meta name="description" content="Toni Yanchev — London-based Computer Science graduate (2:1, 67%). Open to junior roles across web/frontend, mobile (Ionic/React), entry-level data/ML, and IT." />
+  <meta name="author" content="Toni Yanchev" />
   <link rel="canonical" href="https://Antonio-Yanchev.github.io" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b0f19" />
@@ -12,19 +13,21 @@
 
   <!-- Open Graph / LinkedIn preview -->
   <meta property="og:title" content="Toni Yanchev — Software Developer Portfolio" />
-  <meta property="og:description" content="Frontend/Full-Stack projects, education, skills, and contact." />
-  <!-- Put an image called og-image.png in your repo root (1200x630 recommended) -->
+  <meta property="og:description" content="Projects in web, mobile, and data/ML; skills, education, and contact." />
+  <!-- Keep/replace with a 1200x630 image in your repo root -->
   <meta property="og:image" content="https://Antonio-Yanchev.github.io/og-image.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://Antonio-Yanchev.github.io" />
 
-  <!-- Twitter card (optional) -->
+  <!-- Twitter card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Toni Yanchev — Software Developer Portfolio" />
-  <meta name="twitter:description" content="Frontend/Full-Stack projects, education, skills, and contact." />
+  <meta name="twitter:description" content="Projects in web, mobile, and data/ML; skills, education, and contact." />
   <meta name="twitter:image" content="https://Antonio-Yanchev.github.io/og-image.png" />
 
   <link rel="icon" href="/favicon.ico" />
+  <link rel="preload" as="image" href="/me.jpg" imagesrcset="/me.jpg" />
+
   <style>
     :root{
       --bg:#0b0f19; --card:#12192b; --text:#e9edf7; --muted:#a8b3c7;
@@ -39,7 +42,13 @@
     header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
     nav a{margin-left:14px}
     .brand{display:flex;align-items:center;gap:12px}
-    .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+    /* Avatar image */
+    .avatar{
+      width:56px;height:56px;border-radius:50%;
+      object-fit:cover;object-position:center;
+      border:1px solid var(--border);
+      box-shadow:0 2px 8px rgba(0,0,0,.25);
+    }
     .tag{color:var(--muted);font-size:.95rem}
     .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04)}
     .btn:focus{outline:2px solid var(--ring);outline-offset:2px}
@@ -72,7 +81,8 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <div class="avatar" aria-hidden="true"></div>
+        <!-- Place me.jpg in the repo root -->
+        <img class="avatar" src="/me.jpg" alt="Portrait of Toni Yanchev" width="56" height="56" />
         <div>
           <div class="tag">👋 Hi, I'm</div>
           <strong style="font-size:1.15rem">Toni Yanchev</strong>
@@ -89,10 +99,10 @@
 
     <main id="main">
       <section class="hero" aria-label="Introduction">
-        <h1>Computer Science Graduate • Frontend / Full-Stack Developer</h1>
+        <h1>Computer Science Graduate (2:1) — Junior Web/Mobile/Data/IT</h1>
         <p class="sub">
-          London-based developer focused on building fast, clean web apps with React, TypeScript, and Firebase.
-          Open to junior developer and graduate roles.
+          London-based developer comfortable with React + TypeScript and Ionic/Firebase, plus Python/Java for general software work.
+          Open to <strong>frontend/web</strong>, <strong>mobile</strong>, <strong>entry-level data/ML</strong>, and <strong>junior IT</strong> roles.<!-- summary aligned to CV -->
         </p>
         <div class="pills" aria-label="Key skills">
           <span class="pill">React</span>
@@ -102,12 +112,14 @@
           <span class="pill">Python</span>
           <span class="pill">Java</span>
           <span class="pill">SQL</span>
+          <span class="pill">R (ML basics)</span>
         </div>
         <div class="inline-icons" style="margin-top:14px">
           <a class="btn primary" href="#projects" aria-label="View projects">View Projects</a>
           <a class="btn" href="/CV.pdf" aria-label="Download CV PDF">Download CV</a>
-          <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noreferrer" aria-label="GitHub profile">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/LINKEDIN_HANDLE/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
+          <a class="btn" href="mailto:antonio.yanchev@gmail.com?subject=Hello%20Toni%20—%20from%20your%20portfolio">Email</a>
+          <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="me noopener noreferrer" aria-label="GitHub profile">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="me noopener noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
         </div>
       </section>
 
@@ -116,8 +128,8 @@
         <div class="grid">
           <article class="card">
             <h3>Fit-Trak (Dissertation)</h3>
-            <p>Ionic React + Firebase app for meal & workout tracking with USDA FoodData API and OpenAI-assisted plan generation.</p>
-            <p class="meta">Ionic • React • Firebase • REST APIs</p>
+            <p>Ionic React + Firebase app for meal &amp; workout tracking with USDA FoodData API and OpenAI-assisted plan generation.</p>
+            <p class="meta">Ionic • React • TypeScript • Firebase • REST APIs</p>
             <p>
               <a href="https://github.com/Antonio-Yanchev/fit-trak" target="_blank" rel="noreferrer">Code</a>
               · <a href="https://Antonio-Yanchev.github.io/fit-trak/" target="_blank" rel="noreferrer">Live</a>
@@ -134,14 +146,14 @@
           <article class="card">
             <h3>Penguins ML</h3>
             <p>kNN vs Naïve Bayes with cross-validation, PCA, confusion matrices, and ROC analysis on the Palmer Penguins dataset.</p>
-            <p class="meta">R • ML • Data Visualization</p>
+            <p class="meta">R • ML • Data Visualisation</p>
             <p><a href="https://github.com/Antonio-Yanchev/penguins-ml" target="_blank" rel="noreferrer">Code</a></p>
           </article>
 
           <article class="card">
             <h3>ClaClo-Manager (Group Project)</h3>
-            <p>Subsystem for multi-tenant university platform—manager console for curriculum, accounts & audit trails.</p>
-            <p class="meta">React • Node • SQL (concept) • Team collaboration</p>
+            <p>Subsystem for multi-tenant university platform—manager console for curriculum, accounts &amp; audit trails.</p>
+            <p class="meta">React • TypeScript • Team collaboration</p>
           </article>
         </div>
       </section>
@@ -170,7 +182,7 @@
           </div>
           <div class="row">
             <div class="k">Classification</div>
-            <div>2:1 (≈67% average)</div>
+            <div>Upper Second-class (2:1) — 67%</div>
           </div>
           <div class="row">
             <div class="k">Highlights</div>
@@ -184,19 +196,19 @@
         <div class="grid">
           <div class="card">
             <h3>Languages</h3>
-            <p>JavaScript/TypeScript, Python, Java, SQL, HTML, CSS, C/C++ (basic), XML.</p>
+            <p>TypeScript/JavaScript, Python, Java, SQL, HTML, CSS, C/C++ (basic), XML.</p>
           </div>
           <div class="card">
-            <h3>Frameworks & Libraries</h3>
+            <h3>Frameworks &amp; Libraries</h3>
             <p>React, Ionic, Node (basics), R (ML coursework).</p>
           </div>
           <div class="card">
-            <h3>Platforms & Databases</h3>
-            <p>Firebase (Auth, Firestore/Storage), MySQL (basics).</p>
+            <h3>Platforms &amp; Databases</h3>
+            <p>Firebase (Auth, Firestore/Storage, Hosting), MySQL (basics), REST APIs.</p>
           </div>
           <div class="card">
             <h3>Tools</h3>
-            <p>Git/GitHub, VS Code. Learning: AWS, Jira, Docker (basics).</p>
+            <p>Git/GitHub, VS Code; Learning: AWS, Jira, Docker (basics).</p>
           </div>
           <div class="card">
             <h3>Strengths</h3>
@@ -211,11 +223,12 @@
 
       <section id="contact">
         <h2>Contact</h2>
-        <p class="meta">I’m open to junior developer roles, internships, and freelance work.</p>
+        <p class="meta">Open to junior developer roles, internships, and freelance work.</p>
         <p>
-          <a class="btn" href="mailto:YOUR_EMAIL@example.com?subject=Hello%20Toni%20—%20from%20your%20portfolio">Email me</a>
-          <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/LINKEDIN_HANDLE/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="mailto:antonio.yanchev@gmail.com?subject=Hello%20Toni%20—%20from%20your%20portfolio">antonio.yanchev@gmail.com</a>
+          <a class="btn" href="tel:+447464725420">+44 7464 725 420</a>
+          <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="me noopener noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="me noopener noreferrer">LinkedIn</a>
         </p>
       </section>
     </main>
@@ -238,12 +251,14 @@
     "@type": "Person",
     "name": "Toni Yanchev",
     "url": "https://Antonio-Yanchev.github.io",
-    "jobTitle": "Frontend / Full-Stack Developer",
+    "jobTitle": "Junior Web/Mobile/Data/IT",
     "address": {"@type":"PostalAddress","addressLocality":"London","addressCountry":"UK"},
-    "email": "mailto:YOUR_EMAIL@example.com",
+    "email": "mailto:antonio.yanchev@gmail.com",
+    "telephone": "+447464725420",
+    "image": "https://Antonio-Yanchev.github.io/me.jpg",
     "sameAs": [
       "https://github.com/Antonio-Yanchev",
-      "https://www.linkedin.com/in/LINKEDIN_HANDLE/"
+      "https://www.linkedin.com/in/antonio-yanchev-00a938227/"
     ]
   }
   </script>
