@@ -48,19 +48,10 @@
     header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
     nav a{margin-left:14px}
     .brand{display:flex;align-items:center;gap:12px}
-
-    .avatar{
-      width:320px;height:320px;border-radius:50%;
-      object-fit:cover;object-position:center;
-      border:1px solid var(--border);
-      box-shadow:0 2px 8px rgba(0,0,0,.6);
-      background:#111;
-    }
-
+    .avatar{width:320px;height:320px;border-radius:50%;object-fit:cover;object-position:center;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.6);background:#111}
     .tag{color:var(--muted);font-size:.95rem}
     .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:#101011}
     .btn:focus{outline:2px solid var(--ring);outline-offset:2px}
-
     .hero{margin-top:18px;padding:28px;border:1px solid var(--border);border-radius:18px;background:var(--card-2)}
     h1{margin:0 0 10px;font-size:clamp(28px,4vw,40px)}
     h2{font-size:1.4rem;margin:0 0 12px}
@@ -79,12 +70,8 @@
     .footer{margin-top:40px;color:var(--muted);font-size:.95rem}
     .inline-icons a{display:inline-flex;align-items:center;gap:8px;margin-right:12px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-
     /* Resume modal */
-    .modal-backdrop{
-      position:fixed;inset:0;background:rgba(0,0,0,.75);
-      display:none;align-items:center;justify-content:center;z-index:9999;
-    }
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:9999}
     .modal{width:min(1000px,94vw);height:min(85vh,900px);background:#0c0c0d;border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,.6);display:flex;flex-direction:column}
     .modal header{padding:12px 14px;border-bottom:1px solid var(--border);justify-content:space-between}
     .modal header h3{margin:0;font-size:1.05rem}
@@ -244,38 +231,22 @@
     <footer class="footer">© <span id="year"></span> Antonio Yanchev • Last updated <span id="updated"></span></footer>
   </div>
 
-  <!-- Resume modal (loads an HTML resume to discourage downloads) -->
+  <!-- Resume modal -->
   <div class="modal-backdrop" id="resume-modal" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-label="Resume viewer">
       <header>
         <h3>Resume — Antonio Yanchev</h3>
         <button class="close" id="close-resume" type="button">Close</button>
       </header>
-      <!-- Create a separate /resume.html (HTML version of your CV) -->
-      <iframe class="frame" src="/resume.html" title="Resume"></iframe>
+      <!-- UPDATED SRC TO YOUR FILE -->
+      <iframe class="frame" src="/Antonio_Yanchev_CV.pdf" title="Resume"></iframe>
     </div>
   </div>
 
-  <script>
-    // Footer dates
-    const y=document.getElementById('year');const u=document.getElementById('updated');const d=new Date();
-    y.textContent=d.getFullYear();u.textContent=d.toLocaleDateString(undefined,{year:'numeric',month:'short'});
+  <!-- External JS to satisfy CSP -->
+  <script src="/app.js" defer></script>
 
-    // Resume modal logic
-    const openBtn=document.getElementById('open-resume');
-    const modal=document.getElementById('resume-modal');
-    const closeBtn=document.getElementById('close-resume');
-
-    function openModal(){ modal.style.display='flex'; modal.setAttribute('aria-hidden','false'); }
-    function closeModal(){ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); }
-
-    openBtn?.addEventListener('click', openModal);
-    closeBtn?.addEventListener('click', closeModal);
-    modal?.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
-    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeModal(); });
-  </script>
-
-  <!-- Structured data -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
