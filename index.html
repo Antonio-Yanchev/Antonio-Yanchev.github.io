@@ -4,65 +4,97 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Antonio Yanchev — Software Developer Portfolio</title>
-  <meta name="description" content="Antonio Yanchev — London-based Computer Science graduate (2:1, 67%). Open to junior roles across web/frontend, mobile (Ionic/React), entry-level data/ML, and IT." />
+  <meta name="description" content="Junior React/Ionic developer building fast, accessible web apps with Firebase + TypeScript. Open to junior roles in web/frontend, mobile, entry-level data/ML, and IT." />
   <meta name="author" content="Antonio Yanchev" />
-  <link rel="canonical" href="https://Antonio-Yanchev.github.io" />
+  <link rel="canonical" href="https://antonio-yanchev.github.io" />
   <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#0b0f19" />
-  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- Security-minded meta (limited on GitHub Pages, still helpful) -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 img-src 'self' data:;
+                 style-src 'self' 'unsafe-inline';
+                 script-src 'self';
+                 connect-src 'self';
+                 frame-ancestors 'none';
+                 base-uri 'self';
+                 form-action 'self' https://formspree.io;">
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
 
   <!-- Open Graph / LinkedIn preview -->
   <meta property="og:title" content="Antonio Yanchev — Software Developer Portfolio" />
   <meta property="og:description" content="Projects in web, mobile, and data/ML; skills, education, and contact." />
-  <!-- Keep/replace with a 1200x630 image in your repo root -->
-  <meta property="og:image" content="https://Antonio-Yanchev.github.io/og-image.png" />
+  <meta property="og:image" content="https://antonio-yanchev.github.io/og-image.png" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://Antonio-Yanchev.github.io" />
+  <meta property="og:url" content="https://antonio-yanchev.github.io" />
 
   <!-- Twitter card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Antonio Yanchev — Software Developer Portfolio" />
   <meta name="twitter:description" content="Projects in web, mobile, and data/ML; skills, education, and contact." />
-  <meta name="twitter:image" content="https://Antonio-Yanchev.github.io/og-image.png" />
+  <meta name="twitter:image" content="https://antonio-yanchev.github.io/og-image.png" />
 
   <link rel="icon" href="/favicon.ico" />
-  <link rel="preload" as="image" href="/me.jpg" imagesrcset="/me.jpg" />
+  <link rel="preload" as="image" href="/assets/antonio.webp" />
 
   <style>
     :root{
-      --bg:#0b0f19; --card:#12192b; --text:#e9edf7; --muted:#a8b3c7;
+      /* Pure black background as requested */
+      --bg:#000000; --card:#111624; --text:#e9edf7; --muted:#a8b3c7;
       --accent:#7aa2ff; --accent-2:#9bffe0; --ring:rgba(122,162,255,.45);
-      --border:rgba(255,255,255,.08);
+      --border:rgba(255,255,255,.10);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
-    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
     .wrap{max-width:1100px;margin:auto;padding:28px}
     header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
     nav a{margin-left:14px}
     .brand{display:flex;align-items:center;gap:12px}
-    /* Avatar image */
     .avatar{
-      width:320px;
-      height:320px;
-      border-radius:50%;
+      width:320px;height:320px;border-radius:50%;
       object-fit:cover;object-position:center;
       border:1px solid var(--border);
-      box-shadow:0 2px 8px rgba(0,0,0,.25);
+      box-shadow:0 2px 8px rgba(0,0,0,.5);
     }
     .tag{color:var(--muted);font-size:.95rem}
-    .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04)}
+    .btn{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:10px 14px;border-radius:12px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04)
+    }
     .btn:focus{outline:2px solid var(--ring);outline-offset:2px}
-    .btn.primary{background:linear-gradient(135deg,rgba(122,162,255,.25),rgba(155,255,224,.12));border-color:rgba(255,255,255,.12)}
-    .hero{margin-top:18px;padding:28px;border:1px solid var(--border);border-radius:18px;
-      background:radial-gradient(1200px 500px at 0% -10%,rgba(122,162,255,.16),transparent 60%),
-                 radial-gradient(900px 400px at 100% 0%,rgba(155,255,224,.08),transparent 60%),var(--card);}
+    .btn.primary{
+      background:linear-gradient(135deg,rgba(122,162,255,.25),rgba(155,255,224,.12));
+      border-color:rgba(255,255,255,.12)
+    }
+    .hero{
+      margin-top:18px;padding:28px;border:1px solid var(--border);border-radius:18px;
+      background:
+        radial-gradient(1200px 500px at 0% -10%,rgba(122,162,255,.16),transparent 60%),
+        radial-gradient(900px 400px at 100% 0%,rgba(155,255,224,.08),transparent 60%),
+        var(--card);
+    }
     h1{margin:0 0 10px;font-size:clamp(28px,4vw,40px)}
     h2{font-size:1.4rem;margin:0 0 12px}
     .sub{color:var(--muted)}
     .pills{margin-top:8px}
-    .pill{display:inline-block;padding:6px 10px;margin:6px 8px 0 0;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--border);font-size:.9rem}
+    .pill{
+      display:inline-block;padding:6px 10px;margin:6px 8px 0 0;
+      border-radius:999px;background:rgba(255,255,255,.06);
+      border:1px solid var(--border);font-size:.9rem
+    }
     section{margin-top:34px}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
@@ -75,6 +107,11 @@
     .footer{margin-top:40px;color:var(--muted);font-size:.95rem}
     .inline-icons a{display:inline-flex;align-items:center;gap:8px;margin-right:12px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    /* Contact form inputs */
+    input, textarea{
+      width:100%;padding:10px;border-radius:10px;
+      border:1px solid var(--border);background:#0e1422;color:var(--text)
+    }
   </style>
 </head>
 <body>
@@ -83,8 +120,8 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <!-- Place me.jpg in the repo root -->
-        <img class="avatar" src="/antonio.jpeg" alt="Portrait of Antonio Yanchev" width="320" height="320" />
+        <!-- Use a compressed WebP for faster load -->
+        <img class="avatar" src="/assets/antonio.webp" alt="Portrait of Antonio Yanchev" width="320" height="320" loading="eager" />
         <div>
           <div class="tag">👋 Hi, I'm</div>
           <strong style="font-size:1.15rem">Antonio Yanchev</strong>
@@ -96,15 +133,16 @@
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
+        <a href="#resume">Resume</a>
       </nav>
     </header>
 
     <main id="main">
       <section class="hero" aria-label="Introduction">
-        <h1>Computer Science Graduate — Junior Web/Mobile/Data/IT</h1>
+        <h1>Junior React/Ionic Developer — Web & Mobile</h1>
         <p class="sub">
           London-based developer comfortable with React + TypeScript and Ionic/Firebase, plus Python/Java for general software work.
-          Open to <strong>frontend/web</strong>, <strong>mobile</strong>, <strong>entry-level data/ML</strong>, and <strong>junior IT</strong> roles.<!-- summary aligned to CV -->
+          Open to <strong>frontend/web</strong>, <strong>mobile</strong>, <strong>entry-level data/ML</strong>, and <strong>junior IT</strong> roles.
         </p>
         <div class="pills" aria-label="Key skills">
           <span class="pill">React</span>
@@ -118,10 +156,11 @@
         </div>
         <div class="inline-icons" style="margin-top:14px">
           <a class="btn primary" href="#projects" aria-label="View projects">View Projects</a>
-          <a class="btn" href="/Antonio_Yanchev_CV.docx" download>Download CV</a>
+          <!-- Removed direct CV download for privacy/security -->
+          <a class="btn" href="#resume" aria-label="View resume">Resume</a>
           <a class="btn" href="mailto:antonio.yanchev@gmail.com?subject=Hello%20Toni%20—%20from%20your%20portfolio">Email</a>
-          <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="me noopener noreferrer" aria-label="GitHub profile">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="me noopener noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
+          <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
         </div>
       </section>
 
@@ -130,11 +169,11 @@
         <div class="grid">
           <article class="card">
             <h3>Fit-Trak (Dissertation)</h3>
-            <p>Ionic React + Firebase app for meal &amp; workout tracking with USDA FoodData API and OpenAI-assisted plan generation.</p>
+            <p>Ionic React + Firebase app for meal &amp; workout tracking with USDA FoodData API and AI-assisted plan generation.</p>
             <p class="meta">Ionic • React • TypeScript • Firebase • REST APIs</p>
             <p>
-              <a href="https://github.com/Antonio-Yanchev/fit-trak" target="_blank" rel="noreferrer">Code</a>
-              · <a href="https://Antonio-Yanchev.github.io/fit-trak/" target="_blank" rel="noreferrer">Live</a>
+              <a href="https://github.com/Antonio-Yanchev/fit-trak" target="_blank" rel="noopener noreferrer">Code</a>
+              · <a href="https://Antonio-Yanchev.github.io/fit-trak/" target="_blank" rel="noopener noreferrer">Live</a>
             </p>
           </article>
 
@@ -142,14 +181,14 @@
             <h3>Taxi Dispatch Simulation</h3>
             <p>Python agent-based simulation with A* pathfinding and dispatcher logic to reduce idle time and maximize fares.</p>
             <p class="meta">Python • A* • Simulation</p>
-            <p><a href="https://github.com/Antonio-Yanchev/robo-uber" target="_blank" rel="noreferrer">Code</a></p>
+            <p><a href="https://github.com/Antonio-Yanchev/robo-uber" target="_blank" rel="noopener noreferrer">Code</a></p>
           </article>
 
           <article class="card">
             <h3>Penguins ML</h3>
             <p>kNN vs Naïve Bayes with cross-validation, PCA, confusion matrices, and ROC analysis on the Palmer Penguins dataset.</p>
             <p class="meta">R • ML • Data Visualisation</p>
-            <p><a href="https://github.com/Antonio-Yanchev/penguins-ml" target="_blank" rel="noreferrer">Code</a></p>
+            <p><a href="https://github.com/Antonio-Yanchev/penguins-ml" target="_blank" rel="noopener noreferrer">Code</a></p>
           </article>
 
           <article class="card">
@@ -161,56 +200,55 @@
       </section>
 
       <section id="experience">
-  <h2>Experience</h2>
+        <h2>Experience</h2>
 
-  <div class="card">
-    <div class="row">
-      <div class="k">Current Role</div>
-      <div><strong>Waiter — Happy London</strong> • Central London <span class="meta">(Jun 2025 – Present)</span></div>
-    </div>
-    <ul style="margin:8px 0 0 1.1rem">
-      <li>Fast, accurate service in a high-volume venue using POS/handhelds.</li>
-      <li>Coordinate with kitchen/bar to keep ticket times on track; resolve issues calmly.</li>
-      <li>Maintain floor standards; support opening/closing.</li>
-    </ul>
-  </div>
+        <div class="card">
+          <div class="row">
+            <div class="k">Current Role</div>
+            <div><strong>Waiter — Happy London</strong> • Central London <span class="meta">(Jun 2025 – Present)</span></div>
+          </div>
+          <ul style="margin:8px 0 0 1.1rem">
+            <li>Fast, accurate service in a high-volume venue using POS/handhelds.</li>
+            <li>Coordinate with kitchen/bar to keep ticket times on track; resolve issues calmly.</li>
+            <li>Maintain floor standards; support opening/closing.</li>
+          </ul>
+        </div>
 
-  <div class="card">
-    <div class="row">
-      <div class="k">Previous</div>
-      <div><strong>Food Runner — Happy London</strong> • Central London <span class="meta">(Jul 2024 – Jun 2025)</span></div>
-    </div>
-    <ul style="margin:8px 0 0 1.1rem">
-      <li>Ran dishes from the pass; checked dockets and explained allergens/specials.</li>
-      <li>Prioritised tickets with the kitchen to keep service flow smooth during peaks.</li>
-      <li>Prepared sections pre-service and turned tables quickly.</li>
-    </ul>
-  </div>
+        <div class="card">
+          <div class="row">
+            <div class="k">Previous</div>
+            <div><strong>Food Runner — Happy London</strong> • Central London <span class="meta">(Jul 2024 – Jun 2025)</span></div>
+          </div>
+          <ul style="margin:8px 0 0 1.1rem">
+            <li>Ran dishes from the pass; checked dockets and explained allergens/specials.</li>
+            <li>Prioritised tickets with the kitchen to keep service flow smooth during peaks.</li>
+            <li>Prepared sections pre-service and turned tables quickly.</li>
+          </ul>
+        </div>
 
-  <div class="card">
-    <div class="row">
-      <div class="k">Previous</div>
-      <div><strong>Kitchen Associate — J D Wetherspoon (Swan & Castle)</strong> • Oxford <span class="meta">(Jan 2024 – May 2024)</span></div>
-    </div>
-    <ul style="margin:8px 0 0 1.1rem">
-      <li>Prep and line service to spec; upheld food-safety and hygiene standards.</li>
-      <li>Stock rotation, deliveries and waste control; opening/closing checks.</li>
-    </ul>
-  </div>
+        <div class="card">
+          <div class="row">
+            <div class="k">Previous</div>
+            <div><strong>Kitchen Associate — J D Wetherspoon (Swan & Castle)</strong> • Oxford <span class="meta">(Jan 2024 – May 2024)</span></div>
+          </div>
+          <ul style="margin:8px 0 0 1.1rem">
+            <li>Prep and line service to spec; upheld food-safety and hygiene standards.</li>
+            <li>Stock rotation, deliveries and waste control; opening/closing checks.</li>
+          </ul>
+        </div>
 
-  <div class="card">
-    <div class="row">
-      <div class="k">Previous</div>
-      <div><strong>Food Runner — SUSHISAMBA</strong> • Covent Garden, London <span class="meta">(Sep 2021 – Aug 2023)</span></div>
-    </div>
-    <ul style="margin:8px 0 0 1.1rem">
-      <li>Delivered and explained dishes to brand standards in a premium, fast-paced setting.</li>
-      <li>Liaised between kitchen and floor; prioritised orders at the pass.</li>
-      <li>Prepared sections and supported opening/closing.</li>
-    </ul>
-  </div>
-</section>
-
+        <div class="card">
+          <div class="row">
+            <div class="k">Previous</div>
+            <div><strong>Food Runner — SUSHISAMBA</strong> • Covent Garden, London <span class="meta">(Sep 2021 – Aug 2023)</span></div>
+          </div>
+          <ul style="margin:8px 0 0 1.1rem">
+            <li>Delivered and explained dishes to brand standards in a premium, fast-paced setting.</li>
+            <li>Liaised between kitchen and floor; prioritised orders at the pass.</li>
+            <li>Prepared sections and supported opening/closing.</li>
+          </ul>
+        </div>
+      </section>
 
       <section id="education">
         <h2>Education</h2>
@@ -248,7 +286,7 @@
           <div class="card">
             <h3>Tools</h3>
             <p>Git/GitHub, VS Code</p>
-            <p>Will Learn: AWS, Jira, Docker (basics).</p>
+            <p>Learning: AWS, Jira, Docker (basics).</p>
           </div>
           <div class="card">
             <h3>Strengths</h3>
@@ -261,15 +299,45 @@
         </div>
       </section>
 
+      <section id="resume">
+        <h2>Resume</h2>
+        <div class="card">
+          <p class="meta">For privacy/security, the PDF isn’t hosted. View highlights below or request a tailored PDF via the form.</p>
+          <ul>
+            <li>Junior React/Ionic developer with Firebase experience.</li>
+            <li>Projects: Fit-Trak, Taxi Dispatch (A*), Penguins ML.</li>
+            <li>Based in London • Open to junior roles and internships.</li>
+          </ul>
+          <p><a class="btn" href="#contact">Request PDF via contact form</a></p>
+        </div>
+      </section>
+
       <section id="contact">
         <h2>Contact</h2>
-        <p class="meta">Open to junior developer roles, internships, and freelance work.</p>
-        <p>
-          <a class="btn" href="mailto:antonio.yanchev@gmail.com?subject=Hello%20Toni%20—%20from%20your%20portfolio">antonio.yanchev@gmail.com</a>
-          <a class="btn" href="tel:+447464725420">+44 7464 725 420</a>
-          <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="me noopener noreferrer">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="me noopener noreferrer">LinkedIn</a>
-        </p>
+        <p class="meta">I usually reply within 48 hours (Europe/London).</p>
+        <div class="card">
+          <!-- Simple static form; replace action with your Formspree endpoint -->
+          <form method="POST" action="https://formspree.io/f/your-id">
+            <label for="name">Name</label><br />
+            <input id="name" name="name" required /><br /><br />
+            <label for="email">Email</label><br />
+            <input id="email" name="email" type="email" required /><br /><br />
+            <label for="msg">Message</label><br />
+            <textarea id="msg" name="message" rows="5" required></textarea>
+            <!-- Honeypot -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+            <br />
+            <button class="btn primary" type="submit">Send</button>
+          </form>
+          <p class="meta" style="margin-top:10px">
+            Prefer direct email? antonio<span aria-hidden="true">.</span>yanchev<span aria-hidden="true">[at]</span>gmail<span aria-hidden="true">[dot]</span>com
+          </p>
+          <p>
+            <a class="btn" href="tel:+447464725420">+44 7464 725 420</a>
+            <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </p>
+        </div>
       </section>
     </main>
 
@@ -284,18 +352,18 @@
     u.textContent = d.toLocaleDateString(undefined, { year:'numeric', month:'short' });
   </script>
 
-  <!-- Structured data for better search/preview -->
+  <!-- Structured data (fixed name + URLs) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Aoni Yanchev",
-    "url": "https://Antonio-Yanchev.github.io",
+    "name": "Antonio Yanchev",
+    "url": "https://antonio-yanchev.github.io",
     "jobTitle": "Junior Web/Mobile/Data/IT",
     "address": {"@type":"PostalAddress","addressLocality":"London","addressCountry":"UK"},
     "email": "mailto:antonio.yanchev@gmail.com",
     "telephone": "+447464725420",
-    "image": "https://Antonio-Yanchev.github.io/me.jpg",
+    "image": "https://antonio-yanchev.github.io/assets/antonio.webp",
     "sameAs": [
       "https://github.com/Antonio-Yanchev",
       "https://www.linkedin.com/in/antonio-yanchev-00a938227/"
