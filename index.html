@@ -5,31 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Antonio Yanchev — Software Developer Portfolio</title>
   <meta name="description" content="Junior React/Ionic developer building fast, accessible web apps with Firebase + TypeScript. Open to junior roles in web/frontend, mobile, entry-level data/ML, and IT." />
-  <meta name="author" content="Antonio Yanchev" />
   <link rel="canonical" href="https://antonio-yanchev.github.io" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#000000" />
   <meta name="color-scheme" content="dark" />
 
-  <!-- Security-minded meta -->
+  <!-- Strict but compatible CSP (no inline JS needed now) -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
                  img-src 'self' data:;
                  style-src 'self' 'unsafe-inline';
                  script-src 'self';
-                 connect-src 'self';
+                 frame-src 'self';
                  frame-ancestors 'self';
                  base-uri 'self'">
   <meta name="referrer" content="no-referrer" />
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
-
-  <!-- Social preview -->
-  <meta property="og:title" content="Antonio Yanchev — Software Developer Portfolio" />
-  <meta property="og:description" content="Projects in web, mobile, and data/ML; skills, education, and contact." />
-  <meta property="og:image" content="https://antonio-yanchev.github.io/og-image.png" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://antonio-yanchev.github.io" />
-  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="/favicon.ico" />
   <link rel="preload" as="image" href="/antonio.jpeg" />
@@ -43,15 +34,26 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
-    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
     .wrap{max-width:1100px;margin:auto;padding:28px}
     header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
     nav a{margin-left:14px}
     .brand{display:flex;align-items:center;gap:12px}
-    .avatar{width:320px;height:320px;border-radius:50%;object-fit:cover;object-position:center;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.6);background:#111}
+
+    .avatar{
+      width:320px;height:320px;border-radius:50%;
+      object-fit:cover;object-position:center;
+      border:1px solid var(--border);
+      box-shadow:0 2px 8px rgba(0,0,0,.6);
+      background:#111;
+    }
+
     .tag{color:var(--muted);font-size:.95rem}
     .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:#101011}
     .btn:focus{outline:2px solid var(--ring);outline-offset:2px}
+
     .hero{margin-top:18px;padding:28px;border:1px solid var(--border);border-radius:18px;background:var(--card-2)}
     h1{margin:0 0 10px;font-size:clamp(28px,4vw,40px)}
     h2{font-size:1.4rem;margin:0 0 12px}
@@ -64,19 +66,24 @@
     .card h3{margin:.2rem 0 .4rem}
     .card p{margin:.2rem 0 .6rem}
     .meta{color:var(--muted);font-size:.95rem}
-    .list{display:grid;gap:8px}
     .row{display:flex;gap:10px;align-items:flex-start}
     .row .k{min-width:140px;color:var(--muted)}
     .footer{margin-top:40px;color:var(--muted);font-size:.95rem}
     .inline-icons a{display:inline-flex;align-items:center;gap:8px;margin-right:12px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    /* Resume modal */
-    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:9999}
+
+    /* NO-JS resume modal using :target */
+    .modal-backdrop{
+      position:fixed;inset:0;background:rgba(0,0,0,.75);
+      display:none;align-items:center;justify-content:center;z-index:9999;
+    }
+    /* when the hash points to this element, it becomes visible */
+    #resume-viewer:target{display:flex}
     .modal{width:min(1000px,94vw);height:min(85vh,900px);background:#0c0c0d;border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,.6);display:flex;flex-direction:column}
-    .modal header{padding:12px 14px;border-bottom:1px solid var(--border);justify-content:space-between}
+    .modal header{padding:12px 14px;border-bottom:1px solid var(--border);justify-content:space-between;display:flex;align-items:center}
     .modal header h3{margin:0;font-size:1.05rem}
     .modal .frame{flex:1;border:0;border-bottom-left-radius:14px;border-bottom-right-radius:14px}
-    .close{background:#151516;border:1px solid var(--border);border-radius:10px;padding:6px 10px;cursor:pointer;color:var(--text)}
+    .close{background:#151516;border:1px solid var(--border);border-radius:10px;padding:6px 10px;color:var(--text);text-decoration:none}
   </style>
 </head>
 <body>
@@ -105,10 +112,10 @@
       <section class="hero" aria-label="Introduction">
         <h1>Junior React/Ionic Developer — Web & Mobile</h1>
         <p class="sub">
-          I build responsive, accessible interfaces with React, TypeScript and Ionic, and ship them quickly using Firebase
-          (Auth/Firestore/Hosting). Comfortable integrating REST APIs and measuring UX impact, with extra experience in Python/Java for
-          tooling and simulations. I’m London-based, reliable under pressure from hospitality work, and looking for a team where I can
-          contribute to real product features, learn modern testing/CI, and grow into a strong front-end engineer.
+          I build responsive, accessible interfaces with React, TypeScript and Ionic, and ship them quickly using Firebase (Auth/Firestore/Hosting).
+          Comfortable integrating REST APIs and measuring UX impact, with extra experience in Python/Java for tooling and simulations.
+          I’m London-based, reliable under pressure from hospitality work, and looking for a team where I can contribute to real product
+          features, learn modern testing/CI, and grow into a strong front-end engineer.
         </p>
         <div class="pills" aria-label="Key skills">
           <span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">Ionic</span>
@@ -116,10 +123,10 @@
           <span class="pill">SQL</span><span class="pill">R (ML basics)</span>
         </div>
         <div class="inline-icons" style="margin-top:14px">
-          <a class="btn" href="#resume" aria-label="View resume">View Resume</a>
+          <a class="btn" href="#resume">View Resume</a>
           <a class="btn" href="mailto:antonio.yanchev@gmail.com?subject=Hello%20from%20your%20portfolio">Email</a>
-          <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
+          <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </section>
 
@@ -131,19 +138,16 @@
             <p>Ionic React + Firebase app for meal &amp; workout tracking with USDA FoodData API and AI-assisted plan generation.</p>
             <p class="meta">Ionic • React • TypeScript • Firebase • REST APIs</p>
           </article>
-
           <article class="card">
             <h3>Taxi Dispatch Simulation</h3>
             <p>Python agent-based simulation with A* pathfinding and dispatcher logic to reduce idle time and maximize fares.</p>
             <p class="meta">Python • A* • Simulation</p>
           </article>
-
           <article class="card">
             <h3>Penguins ML</h3>
             <p>kNN vs Naïve Bayes with cross-validation, PCA, confusion matrices, and ROC analysis on the Palmer Penguins dataset.</p>
             <p class="meta">R • ML • Data Visualisation</p>
           </article>
-
           <article class="card">
             <h3>ClaClo-Manager (Group Project)</h3>
             <p>Subsystem for multi-tenant university platform—manager console for curriculum, accounts &amp; audit trails.</p>
@@ -212,7 +216,10 @@
         <h2>Resume</h2>
         <div class="card">
           <p class="meta">Click below to view my resume in a viewer (no automatic download).</p>
-          <p><button class="btn" id="open-resume" type="button">View Resume</button></p>
+          <!-- No-JS open -->
+          <p><a class="btn" href="#resume-viewer">View Resume</a></p>
+          <!-- Fallback direct open in a new tab (in case CSS is disabled) -->
+          <p class="meta">If the viewer doesn’t open, <a href="/Antonio_Yanchev_CV.pdf" target="_blank" rel="noopener noreferrer">open the PDF in a new tab</a>.</p>
         </div>
       </section>
 
@@ -225,26 +232,22 @@
           <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </p>
-      </section>
     </main>
 
-    <footer class="footer">© <span id="year"></span> Antonio Yanchev • Last updated <span id="updated"></span></footer>
+    <footer class="footer">© <span id="year">2025</span> Antonio Yanchev • Last updated <span id="updated">Mar 2025</span></footer>
   </div>
 
-  <!-- Resume modal -->
-  <div class="modal-backdrop" id="resume-modal" aria-hidden="true">
+  <!-- NO-JS modal target -->
+  <div class="modal-backdrop" id="resume-viewer" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-label="Resume viewer">
       <header>
         <h3>Resume — Antonio Yanchev</h3>
-        <button class="close" id="close-resume" type="button">Close</button>
+        <a class="close" href="#resume" aria-label="Close resume viewer">Close</a>
       </header>
-      <!-- UPDATED SRC TO YOUR FILE -->
-      <iframe class="frame" src="/Antonio_Yanchev_CV.pdf" title="Resume"></iframe>
+      <!-- your PDF at the site root -->
+      <iframe class="frame" src="/Antonio_Yanchev_CV.pdf" title="Resume PDF"></iframe>
     </div>
   </div>
-
-  <!-- External JS to satisfy CSP -->
-  <script src="/app.js" defer></script>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
