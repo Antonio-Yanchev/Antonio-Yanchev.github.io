@@ -18,7 +18,7 @@
                  style-src 'self' 'unsafe-inline';
                  script-src 'self';
                  connect-src 'self';
-                 frame-ancestors 'none';
+                 frame-ancestors 'self';
                  base-uri 'self'">
   <meta name="referrer" content="no-referrer" />
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
@@ -32,73 +32,41 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="/favicon.ico" />
-  <!-- preload the exact filename you have -->
   <link rel="preload" as="image" href="/antonio.jpeg" />
 
   <style>
     :root{
-      /* Neutral, no blue tint */
-      --bg:#000000;           /* pure black page background */
-      --card:#0b0b0b;         /* card blocks */
-      --card-2:#0f0f10;       /* subtle alt for hero */
-      --text:#e9edf7;
-      --muted:#a8b3c7;
-      --accent:#84a7ff;       /* link color only */
-      --ring:rgba(132,167,255,.35);
-      --border:rgba(255,255,255,.10);
+      --bg:#000; --card:#0b0b0b; --card-2:#0f0f10;
+      --text:#e9edf7; --muted:#a8b3c7; --accent:#84a7ff;
+      --ring:rgba(132,167,255,.35); --border:rgba(255,255,255,.10);
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
-    }
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
     .wrap{max-width:1100px;margin:auto;padding:28px}
     header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
     nav a{margin-left:14px}
     .brand{display:flex;align-items:center;gap:12px}
 
-    /* avatar fixed to your file name */
     .avatar{
       width:320px;height:320px;border-radius:50%;
       object-fit:cover;object-position:center;
       border:1px solid var(--border);
       box-shadow:0 2px 8px rgba(0,0,0,.6);
-      background:#111;       /* placeholder bg so it’s never “invisible” */
+      background:#111;
     }
 
     .tag{color:var(--muted);font-size:.95rem}
-
-    .btn{
-      display:inline-flex;gap:8px;align-items:center;
-      padding:10px 14px;border-radius:12px;
-      border:1px solid var(--border);
-      background:#101011;            /* neutral, not blue */
-    }
+    .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:#101011}
     .btn:focus{outline:2px solid var(--ring);outline-offset:2px}
 
-    .hero{
-      margin-top:18px;padding:28px;border:1px solid var(--border);border-radius:18px;
-      background:var(--card-2);      /* removed blue gradients */
-    }
-
+    .hero{margin-top:18px;padding:28px;border:1px solid var(--border);border-radius:18px;background:var(--card-2)}
     h1{margin:0 0 10px;font-size:clamp(28px,4vw,40px)}
     h2{font-size:1.4rem;margin:0 0 12px}
     .sub{color:var(--muted)}
-
     .pills{margin-top:8px}
-    .pill{
-      display:inline-block;padding:6px 10px;margin:6px 8px 0 0;
-      border-radius:999px;background:#101011;
-      border:1px solid var(--border);font-size:.9rem
-    }
-
+    .pill{display:inline-block;padding:6px 10px;margin:6px 8px 0 0;border-radius:999px;background:#101011;border:1px solid var(--border);font-size:.9rem}
     section{margin-top:34px}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
@@ -111,6 +79,17 @@
     .footer{margin-top:40px;color:var(--muted);font-size:.95rem}
     .inline-icons a{display:inline-flex;align-items:center;gap:8px;margin-right:12px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* Resume modal */
+    .modal-backdrop{
+      position:fixed;inset:0;background:rgba(0,0,0,.75);
+      display:none;align-items:center;justify-content:center;z-index:9999;
+    }
+    .modal{width:min(1000px,94vw);height:min(85vh,900px);background:#0c0c0d;border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,.6);display:flex;flex-direction:column}
+    .modal header{padding:12px 14px;border-bottom:1px solid var(--border);justify-content:space-between}
+    .modal header h3{margin:0;font-size:1.05rem}
+    .modal .frame{flex:1;border:0;border-bottom-left-radius:14px;border-bottom-right-radius:14px}
+    .close{background:#151516;border:1px solid var(--border);border-radius:10px;padding:6px 10px;cursor:pointer;color:var(--text)}
   </style>
 </head>
 <body>
@@ -119,7 +98,6 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <!-- use the exact file you said you have -->
         <img class="avatar" src="/antonio.jpeg" alt="Portrait of Antonio Yanchev" width="320" height="320" loading="eager" />
         <div>
           <div class="tag">👋 Hi, I'm</div>
@@ -140,48 +118,43 @@
       <section class="hero" aria-label="Introduction">
         <h1>Junior React/Ionic Developer — Web & Mobile</h1>
         <p class="sub">
-          London-based developer comfortable with React + TypeScript and Ionic/Firebase, plus Python/Java for general software work.
-          Open to <strong>frontend/web</strong>, <strong>mobile</strong>, <strong>entry-level data/ML</strong>, and <strong>junior IT</strong> roles.
+          I build responsive, accessible interfaces with React, TypeScript and Ionic, and ship them quickly using Firebase
+          (Auth/Firestore/Hosting). Comfortable integrating REST APIs and measuring UX impact, with extra experience in Python/Java for
+          tooling and simulations. I’m London-based, reliable under pressure from hospitality work, and looking for a team where I can
+          contribute to real product features, learn modern testing/CI, and grow into a strong front-end engineer.
         </p>
         <div class="pills" aria-label="Key skills">
           <span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">Ionic</span>
           <span class="pill">Firebase</span><span class="pill">Python</span><span class="pill">Java</span>
           <span class="pill">SQL</span><span class="pill">R (ML basics)</span>
         </div>
-        <!-- Removed the extra "View Projects" button to avoid duplication with nav -->
         <div class="inline-icons" style="margin-top:14px">
-          <a class="btn" href="#resume" aria-label="View resume">Resume</a>
-          <a class="btn" href="mailto:antonio.yanchev@gmail.com?subject=Hello%20Toni%20—%20from%20your%20portfolio">Email</a>
+          <a class="btn" href="#resume" aria-label="View resume">View Resume</a>
+          <a class="btn" href="mailto:antonio.yanchev@gmail.com?subject=Hello%20from%20your%20portfolio">Email</a>
           <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">GitHub</a>
           <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
         </div>
       </section>
 
       <section id="projects">
-        <h2>Selected Projects</h2>
+        <h2>Some of my projects</h2>
         <div class="grid">
           <article class="card">
             <h3>Fit-Trak (Dissertation)</h3>
             <p>Ionic React + Firebase app for meal &amp; workout tracking with USDA FoodData API and AI-assisted plan generation.</p>
             <p class="meta">Ionic • React • TypeScript • Firebase • REST APIs</p>
-            <p>
-              <a href="https://github.com/Antonio-Yanchev/fit-trak" target="_blank" rel="noopener noreferrer">Code</a>
-              · <a href="https://Antonio-Yanchev.github.io/fit-trak/" target="_blank" rel="noopener noreferrer">Live</a>
-            </p>
           </article>
 
           <article class="card">
             <h3>Taxi Dispatch Simulation</h3>
             <p>Python agent-based simulation with A* pathfinding and dispatcher logic to reduce idle time and maximize fares.</p>
             <p class="meta">Python • A* • Simulation</p>
-            <p><a href="https://github.com/Antonio-Yanchev/robo-uber" target="_blank" rel="noopener noreferrer">Code</a></p>
           </article>
 
           <article class="card">
             <h3>Penguins ML</h3>
             <p>kNN vs Naïve Bayes with cross-validation, PCA, confusion matrices, and ROC analysis on the Palmer Penguins dataset.</p>
             <p class="meta">R • ML • Data Visualisation</p>
-            <p><a href="https://github.com/Antonio-Yanchev/penguins-ml" target="_blank" rel="noopener noreferrer">Code</a></p>
           </article>
 
           <article class="card">
@@ -251,15 +224,14 @@
       <section id="resume">
         <h2>Resume</h2>
         <div class="card">
-          <p class="meta">For privacy/security, the PDF isn’t hosted. Request a tailored copy by email.</p>
-          <p><a class="btn" href="mailto:antonio.yanchev@gmail.com?subject=Request%20for%20resume%20PDF">Request PDF by email</a></p>
+          <p class="meta">Click below to view my resume in a viewer (no automatic download).</p>
+          <p><button class="btn" id="open-resume" type="button">View Resume</button></p>
         </div>
       </section>
 
       <section id="contact">
         <h2>Contact</h2>
         <p class="meta">I usually reply within 48 hours (Europe/London).</p>
-        <!-- Form removed as requested; just direct channels -->
         <p>
           <a class="btn" href="mailto:antonio.yanchev@gmail.com?subject=Hello%20from%20your%20portfolio">antonio.yanchev@gmail.com</a>
           <a class="btn" href="tel:+447464725420">+44 7464 725 420</a>
@@ -272,9 +244,35 @@
     <footer class="footer">© <span id="year"></span> Antonio Yanchev • Last updated <span id="updated"></span></footer>
   </div>
 
+  <!-- Resume modal (loads an HTML resume to discourage downloads) -->
+  <div class="modal-backdrop" id="resume-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Resume viewer">
+      <header>
+        <h3>Resume — Antonio Yanchev</h3>
+        <button class="close" id="close-resume" type="button">Close</button>
+      </header>
+      <!-- Create a separate /resume.html (HTML version of your CV) -->
+      <iframe class="frame" src="/resume.html" title="Resume"></iframe>
+    </div>
+  </div>
+
   <script>
+    // Footer dates
     const y=document.getElementById('year');const u=document.getElementById('updated');const d=new Date();
     y.textContent=d.getFullYear();u.textContent=d.toLocaleDateString(undefined,{year:'numeric',month:'short'});
+
+    // Resume modal logic
+    const openBtn=document.getElementById('open-resume');
+    const modal=document.getElementById('resume-modal');
+    const closeBtn=document.getElementById('close-resume');
+
+    function openModal(){ modal.style.display='flex'; modal.setAttribute('aria-hidden','false'); }
+    function closeModal(){ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); }
+
+    openBtn?.addEventListener('click', openModal);
+    closeBtn?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
+    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeModal(); });
   </script>
 
   <!-- Structured data -->
