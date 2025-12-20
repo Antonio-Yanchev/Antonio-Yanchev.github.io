@@ -3,330 +3,269 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Antonio Yanchev — Junior Software Developer</title>
-
-  <meta name="description" content="Junior Software Developer and Computer Science graduate building clean web and mobile apps with React, TypeScript, and Firebase." />
-  <meta name="theme-color" content="#0b0b0b" />
+  <title>Antonio Yanchev — Software Developer Portfolio</title>
+  <meta name="description" content="Junior React/Ionic developer building fast, accessible web apps with Firebase + TypeScript. Open to junior roles in web/frontend, mobile, entry-level data/ML, and IT." />
   <link rel="canonical" href="https://antonio-yanchev.github.io" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- Strict but compatible CSP (no inline JS needed now) -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 img-src 'self' data:;
+                 style-src 'self' 'unsafe-inline';
+                 script-src 'self';
+                 frame-src 'self';
+                 frame-ancestors 'self';
+                 base-uri 'self'">
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preload" as="image" href="/antonio.jpeg" />
 
   <style>
-    :root {
-      --bg: #0b0b0b;
-      --panel: #121212;
-      --border: rgba(255,255,255,.08);
-      --text: #eaeaf0;
-      --muted: #a0a4b8;
-      --accent: #8fb3ff;
-      --radius: 16px;
+    :root{
+      --bg:#000; --card:#0b0b0b; --card-2:#0f0f10;
+      --text:#e9edf7; --muted:#a8b3c7; --accent:#84a7ff;
+      --ring:rgba(132,167,255,.35); --border:rgba(255,255,255,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:1100px;margin:auto;padding:28px}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    nav a{margin-left:14px}
+    .brand{display:flex;align-items:center;gap:12px}
+
+    .avatar{
+      width:320px;height:320px;border-radius:50%;
+      object-fit:cover;object-position:center;
+      border:1px solid var(--border);
+      box-shadow:0 2px 8px rgba(0,0,0,.6);
+      background:#111;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+    .tag{color:var(--muted);font-size:.95rem}
+    .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:#101011}
+    .btn:focus{outline:2px solid var(--ring);outline-offset:2px}
+
+    .hero{margin-top:18px;padding:28px;border:1px solid var(--border);border-radius:18px;background:var(--card-2)}
+    h1{margin:0 0 10px;font-size:clamp(28px,4vw,40px)}
+    h2{font-size:1.4rem;margin:0 0 12px}
+    .sub{color:var(--muted)}
+    .pills{margin-top:8px}
+    .pill{display:inline-block;padding:6px 10px;margin:6px 8px 0 0;border-radius:999px;background:#101011;border:1px solid var(--border);font-size:.9rem}
+    section{margin-top:34px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
+    .card h3{margin:.2rem 0 .4rem}
+    .card p{margin:.2rem 0 .6rem}
+    .meta{color:var(--muted);font-size:.95rem}
+    .row{display:flex;gap:10px;align-items:flex-start}
+    .row .k{min-width:140px;color:var(--muted)}
+    .footer{margin-top:40px;color:var(--muted);font-size:.95rem}
+    .inline-icons a{display:inline-flex;align-items:center;gap:8px;margin-right:12px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* NO-JS resume modal using :target */
+    .modal-backdrop{
+      position:fixed;inset:0;background:rgba(0,0,0,.75);
+      display:none;align-items:center;justify-content:center;z-index:9999;
     }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    a:hover { text-decoration: underline; }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 32px 20px;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 60px;
-    }
-
-    nav a {
-      margin-left: 16px;
-      font-size: 0.95rem;
-    }
-
-    /* ---------- HERO ---------- */
-
-    .hero {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 32px;
-      align-items: center;
-      margin-bottom: 80px;
-    }
-
-    .avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid var(--border);
-      background: #111;
-    }
-
-    h1 {
-      font-size: clamp(32px, 4vw, 44px);
-      margin: 0 0 8px;
-    }
-
-    .role {
-      color: var(--muted);
-      font-size: 1.05rem;
-      margin-bottom: 16px;
-    }
-
-    .hero p {
-      max-width: 640px;
-      margin-bottom: 18px;
-    }
-
-    .actions a {
-      display: inline-block;
-      margin-right: 12px;
-      margin-top: 8px;
-      padding: 10px 16px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--panel);
-      font-size: 0.95rem;
-    }
-
-    /* ---------- SECTIONS ---------- */
-
-    section {
-      margin-bottom: 80px;
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      margin-bottom: 24px;
-    }
-
-    /* ---------- PROJECTS ---------- */
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .project {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-    }
-
-    .project img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 14px;
-      background: #0f0f10;
-    }
-
-    .project h3 {
-      margin: 6px 0;
-      font-size: 1.15rem;
-    }
-
-    .project p {
-      margin: 6px 0 10px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .tech {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .project-links a {
-      font-size: 0.9rem;
-      margin-right: 12px;
-    }
-
-    /* ---------- SKILLS ---------- */
-
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .skill-box {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px;
-    }
-
-    .skill-box h4 {
-      margin: 0 0 6px;
-      font-size: 1rem;
-    }
-
-    .skill-box p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    /* ---------- EXPERIENCE ---------- */
-
-    .experience {
-      max-width: 700px;
-    }
-
-    .experience p {
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    /* ---------- FOOTER ---------- */
-
-    footer {
-      color: var(--muted);
-      font-size: 0.9rem;
-      padding-bottom: 40px;
-    }
-
-    @media (max-width: 720px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .avatar {
-        margin: auto;
-      }
-    }
+    /* when the hash points to this element, it becomes visible */
+    #resume-viewer:target{display:flex}
+    .modal{width:min(1000px,94vw);height:min(85vh,900px);background:#0c0c0d;border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,.6);display:flex;flex-direction:column}
+    .modal header{padding:12px 14px;border-bottom:1px solid var(--border);justify-content:space-between;display:flex;align-items:center}
+    .modal header h3{margin:0;font-size:1.05rem}
+    .modal .frame{flex:1;border:0;border-bottom-left-radius:14px;border-bottom-right-radius:14px}
+    .close{background:#151516;border:1px solid var(--border);border-radius:10px;padding:6px 10px;color:var(--text);text-decoration:none}
   </style>
 </head>
-
 <body>
-  <div class="container">
+  <a class="sr-only" href="#main">Skip to content</a>
 
+  <div class="wrap">
     <header>
-      <strong>Antonio Yanchev</strong>
-      <nav>
+      <div class="brand">
+        <img class="avatar" src="/antonio.jpeg" alt="Portrait of Antonio Yanchev" width="320" height="320" loading="eager" />
+        <div>
+          <div class="tag">👋 Hi, I'm</div>
+          <strong style="font-size:1.15rem">Antonio Yanchev</strong>
+        </div>
+      </div>
+      <nav aria-label="Primary">
         <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
+        <a href="#resume">Resume</a>
       </nav>
     </header>
 
-    <!-- HERO -->
-    <section class="hero">
-      <img src="/antonio.jpeg" alt="Antonio Yanchev portrait" class="avatar">
-
-      <div>
-        <h1>Junior Software Developer</h1>
-        <div class="role">Computer Science Graduate (2:1) — Oxford Brookes University</div>
-
-        <p>
-          I build clean, responsive web and mobile applications using React, TypeScript and Firebase.
-          I enjoy turning ideas into working products and am currently seeking a junior developer role
-          where I can contribute, learn, and grow within a professional engineering team.
+    <main id="main">
+      <section class="hero" aria-label="Introduction">
+        <h1>Junior React/Ionic Developer — Web & Mobile</h1>
+        <p class="sub">
+          I build responsive, accessible interfaces with React, TypeScript and Ionic, and ship them quickly using Firebase (Auth/Firestore/Hosting).
+          Comfortable integrating REST APIs and measuring UX impact, with extra experience in Python/Java for tooling and simulations.
+          I’m London-based, reliable under pressure from hospitality work, and looking for a team where I can contribute to real product
+          features, learn modern testing/CI, and grow into a strong front-end engineer.
         </p>
-
-        <div class="actions">
-          <a href="#projects">View Projects</a>
-          <a href="/Antonio_Yanchev_CV.pdf" target="_blank">View CV</a>
-          <a href="https://github.com/Antonio-Yanchev" target="_blank">GitHub</a>
-          <a href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank">LinkedIn</a>
+        <div class="pills" aria-label="Key skills">
+          <span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">Ionic</span>
+          <span class="pill">Firebase</span><span class="pill">Python</span><span class="pill">Java</span>
+          <span class="pill">SQL</span><span class="pill">R (ML basics)</span>
         </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-      <h2>Featured Projects</h2>
-
-      <div class="projects">
-        <div class="project">
-          <!-- Optional screenshot -->
-          <!-- <img src="/fittrak.png" alt="Fit-Trak app screenshot"> -->
-          <h3>Fit-Trak (Dissertation)</h3>
-          <p>Full-stack fitness and nutrition tracking web app with AI-assisted meal and workout planning.</p>
-          <div class="tech">React • Ionic • TypeScript • Firebase • REST APIs</div>
+        <div class="inline-icons" style="margin-top:14px">
+          <a class="btn" href="#resume">View Resume</a>
+          <a class="btn" href="mailto:antonio.yanchev@gmail.com?subject=Hello%20from%20your%20portfolio">Email</a>
+          <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
+      </section>
 
-        <div class="project">
-          <h3>Taxi Dispatch Simulation</h3>
-          <p>Agent-based Python simulation using A* pathfinding to optimise taxi routing and dispatcher revenue.</p>
-          <div class="tech">Python • A* • OOP • Simulation</div>
+      <section id="projects">
+        <h2>Some of my projects</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Fit-Trak (Dissertation)</h3>
+            <p>Ionic React + Firebase app for meal &amp; workout tracking with USDA FoodData API and AI-assisted plan generation.</p>
+            <p class="meta">Ionic • React • TypeScript • Firebase • REST APIs</p>
+          </article>
+          <article class="card">
+            <h3>Taxi Dispatch Simulation</h3>
+            <p>Python agent-based simulation with A* pathfinding and dispatcher logic to reduce idle time and maximize fares.</p>
+            <p class="meta">Python • A* • Simulation</p>
+          </article>
+          <article class="card">
+            <h3>Penguins ML</h3>
+            <p>kNN vs Naïve Bayes with cross-validation, PCA, confusion matrices, and ROC analysis on the Palmer Penguins dataset.</p>
+            <p class="meta">R • ML • Data Visualisation</p>
+          </article>
+          <article class="card">
+            <h3>ClaClo-Manager (Group Project)</h3>
+            <p>Subsystem for multi-tenant university platform—manager console for curriculum, accounts &amp; audit trails.</p>
+            <p class="meta">React • TypeScript • Team collaboration</p>
+          </article>
         </div>
+      </section>
 
-        <div class="project">
-          <h3>Machine Learning Coursework</h3>
-          <p>Compared k-NN and Naïve Bayes classifiers using cross-validation, PCA and ROC analysis.</p>
-          <div class="tech">Python • R • Machine Learning</div>
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="card">
+          <div class="row"><div class="k">Current Role</div><div><strong>Waiter — Happy London</strong> • Central London <span class="meta">(Jun 2025 – Present)</span></div></div>
+          <ul style="margin:8px 0 0 1.1rem">
+            <li>Fast, accurate service in a high-volume venue using POS/handhelds.</li>
+            <li>Coordinate with kitchen/bar to keep ticket times on track; resolve issues calmly.</li>
+            <li>Maintain floor standards; support opening/closing.</li>
+          </ul>
         </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-      <h2>Technical Skills</h2>
-
-      <div class="skills">
-        <div class="skill-box">
-          <h4>Languages</h4>
-          <p>TypeScript, JavaScript, Python, Java, SQL</p>
+        <div class="card">
+          <div class="row"><div class="k">Previous</div><div><strong>Food Runner — Happy London</strong> • Central London <span class="meta">(Jul 2024 – Jun 2025)</span></div></div>
+          <ul style="margin:8px 0 0 1.1rem">
+            <li>Ran dishes from the pass; checked dockets and explained allergens/specials.</li>
+            <li>Prioritised tickets with the kitchen to keep service flow smooth during peaks.</li>
+            <li>Prepared sections pre-service and turned tables quickly.</li>
+          </ul>
         </div>
-
-        <div class="skill-box">
-          <h4>Frameworks</h4>
-          <p>React, Ionic, Flask</p>
+        <div class="card">
+          <div class="row"><div class="k">Previous</div><div><strong>Kitchen Associate — J D Wetherspoon (Swan & Castle)</strong> • Oxford <span class="meta">(Jan 2024 – May 2024)</span></div></div>
+          <ul style="margin:8px 0 0 1.1rem">
+            <li>Prep and line service to spec; upheld food-safety and hygiene standards.</li>
+            <li>Stock rotation, deliveries and waste control; opening/closing checks.</li>
+          </ul>
         </div>
-
-        <div class="skill-box">
-          <h4>Cloud & Backend</h4>
-          <p>Firebase (Auth, Firestore, Hosting), REST APIs</p>
+        <div class="card">
+          <div class="row"><div class="k">Previous</div><div><strong>Food Runner — SUSHISAMBA</strong> • Covent Garden, London <span class="meta">(Sep 2021 – Aug 2023)</span></div></div>
+          <ul style="margin:8px 0 0 1.1rem">
+            <li>Delivered and explained dishes to brand standards in a premium, fast-paced setting.</li>
+            <li>Liaised between kitchen and floor; prioritised orders at the pass.</li>
+            <li>Prepared sections and supported opening/closing.</li>
+          </ul>
         </div>
+      </section>
 
-        <div class="skill-box">
-          <h4>Tools</h4>
-          <p>Git, GitHub, VS Code</p>
+      <section id="education">
+        <h2>Education</h2>
+        <div class="card">
+          <div class="row"><div class="k">Degree</div><div><strong>BSc (Hons) Computer Science</strong> — Oxford Brookes University</div></div>
+          <div class="row"><div class="k">Classification</div><div>Upper Second-class (2:1) — 67%</div></div>
+          <div class="row"><div class="k">Highlights</div><div>Dissertation: Fit-Trak; Projects: Taxi Dispatch Simulation; Penguins ML.</div></div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <h2>Experience</h2>
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="grid">
+          <div class="card"><h3>Programming Languages</h3><p>TypeScript/JavaScript, Python, Java, SQL, HTML, CSS, C/C++ (basic), XML.</p></div>
+          <div class="card"><h3>Frameworks &amp; Libraries</h3><p>React, Ionic, Node (basics), R (ML coursework).</p></div>
+          <div class="card"><h3>Platforms &amp; Databases</h3><p>Firebase (Auth, Firestore/Storage, Hosting), MySQL (basics), REST APIs.</p></div>
+          <div class="card"><h3>Tools</h3><p>Git/GitHub, VS Code</p><p>Learning: AWS, Jira, Docker (basics).</p></div>
+          <div class="card"><h3>Strengths</h3><p>UI implementation, API integration, debugging, clean code, collaboration.</p></div>
+          <div class="card"><h3>Languages</h3><p>English, Bulgarian.</p></div>
+        </div>
+      </section>
 
-      <div class="experience">
-        <p><strong>Hospitality Roles — London (2021–Present)</strong></p>
+      <section id="resume">
+        <h2>Resume</h2>
+        <div class="card">
+          <p class="meta">Click below to view my resume in a viewer (no automatic download).</p>
+          <!-- No-JS open -->
+          <p><a class="btn" href="#resume-viewer">View Resume</a></p>
+          <!-- Fallback direct open in a new tab (in case CSS is disabled) -->
+          <p class="meta">If the viewer doesn’t open, <a href="/Antonio_Yanchev_CV.pdf" target="_blank" rel="noopener noreferrer">open the PDF in a new tab</a>.</p>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p class="meta">I usually reply within 48 hours (Europe/London).</p>
         <p>
-          Worked in fast-paced, high-pressure environments developing strong communication,
-          teamwork, reliability, and problem-solving skills — qualities I bring into technical teams.
+          <a class="btn" href="mailto:antonio.yanchev@gmail.com?subject=Hello%20from%20your%20portfolio">antonio.yanchev@gmail.com</a>
+          <a class="btn" href="tel:+447464725420">+44 7464 725 420</a>
+          <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </p>
-      </div>
-    </section>
+    </main>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        <a href="mailto:antonio.yanchev@gmail.com">antonio.yanchev@gmail.com</a><br>
-        <a href="tel:+447464725420">+44 7464 725 420</a>
-      </p>
-    </section>
-
-    <footer>
-      © 2025 Antonio Yanchev
-    </footer>
-
+    <footer class="footer">© <span id="year">2025</span> Antonio Yanchev • Last updated <span id="updated">Mar 2025</span></footer>
   </div>
+
+  <!-- NO-JS modal target -->
+  <div class="modal-backdrop" id="resume-viewer" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Resume viewer">
+      <header>
+        <h3>Resume — Antonio Yanchev</h3>
+        <a class="close" href="#resume" aria-label="Close resume viewer">Close</a>
+      </header>
+      <!-- your PDF at the site root -->
+      <iframe class="frame" src="/Antonio_Yanchev_CV.pdf" title="Resume PDF"></iframe>
+    </div>
+  </div>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Antonio Yanchev",
+    "url": "https://antonio-yanchev.github.io",
+    "jobTitle": "Junior Web/Mobile/Data/IT",
+    "address": {"@type":"PostalAddress","addressLocality":"London","addressCountry":"UK"},
+    "email": "mailto:antonio.yanchev@gmail.com",
+    "telephone": "+447464725420",
+    "image": "https://antonio-yanchev.github.io/antonio.jpeg",
+    "sameAs": [
+      "https://github.com/Antonio-Yanchev",
+      "https://www.linkedin.com/in/antonio-yanchev-00a938227/"
+    ]
+  }
+  </script>
 </body>
 </html>
