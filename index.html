@@ -11,6 +11,7 @@
   <meta name="theme-color" content="#000000" />
   <meta name="color-scheme" content="dark" />
 
+  <!-- CSP: allow inline JSON-LD + this small inline script -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
                  img-src 'self' data:;
@@ -38,8 +39,23 @@
     a:hover{text-decoration:underline}
 
     .wrap{max-width:1100px;margin:auto;padding:28px}
-    header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+
+    /* Sticky header for a more "app-like" feel */
+    header{
+      position:sticky; top:0; z-index:50;
+      display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+      padding:14px 0;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,.65);
+      border-bottom: 1px solid var(--border);
+    }
+
     nav a{margin-left:14px}
+    nav a[aria-current="true"]{
+      text-decoration: none;
+      border-bottom: 2px solid rgba(132,167,255,.55);
+      padding-bottom: 2px;
+    }
     .brand{display:flex;align-items:center;gap:12px}
 
     .avatar{
@@ -48,24 +64,58 @@
       border:1px solid var(--border);
       box-shadow:0 2px 8px rgba(0,0,0,.6);
       background:#111;
+      cursor: zoom-in;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .avatar:hover{
+      transform: translateY(-1px);
+      border-color: rgba(132,167,255,.35);
     }
 
     .tag{color:var(--muted);font-size:.95rem}
     .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:#101011}
     .btn:focus{outline:2px solid var(--ring);outline-offset:2px}
 
-    .hero{margin-top:18px;padding:28px;border:1px solid var(--border);border-radius:18px;background:var(--card-2)}
+    /* Landing hero (first screen) */
+    .hero{
+      margin-top:18px;
+      padding:28px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:var(--card-2);
+      min-height: calc(100vh - 140px);
+      display:grid;
+      align-items:center;
+    }
+
     h1{margin:0 0 10px;font-size:clamp(28px,4vw,40px)}
     h2{font-size:1.4rem;margin:0 0 12px}
     .sub{color:var(--muted)}
     .meta{color:var(--muted);font-size:.95rem}
+
     .pills{margin-top:10px}
-    .pill{display:inline-block;padding:6px 10px;margin:6px 8px 0 0;border-radius:999px;background:#101011;border:1px solid var(--border);font-size:.9rem}
+    .pill{
+      display:inline-block;padding:6px 10px;margin:6px 8px 0 0;border-radius:999px;
+      background:#101011;border:1px solid var(--border);font-size:.9rem
+    }
+
     section{margin-top:34px}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:18px;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(132,167,255,.35);
+    }
     .card h3{margin:.2rem 0 .4rem}
     .card p{margin:.2rem 0 .6rem}
+
     .row{display:flex;gap:10px;align-items:flex-start}
     .row .k{min-width:140px;color:var(--muted)}
     .footer{margin-top:40px;color:var(--muted);font-size:.95rem}
@@ -74,6 +124,79 @@
 
     ul{margin:10px 0 0 1.1rem}
     li{margin:.25rem 0}
+
+    /* Scroll reveal */
+    .reveal{
+      opacity:0;
+      transform: translateY(14px);
+      transition: opacity .55s ease, transform .55s ease;
+      will-change: opacity, transform;
+    }
+    .reveal.is-visible{
+      opacity:1;
+      transform: translateY(0);
+    }
+    .reveal-stagger > *{
+      opacity:0;
+      transform: translateY(10px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal-stagger.is-visible > *{
+      opacity:1;
+      transform: translateY(0);
+    }
+    .reveal-stagger.is-visible > *:nth-child(1){transition-delay:.05s}
+    .reveal-stagger.is-visible > *:nth-child(2){transition-delay:.12s}
+    .reveal-stagger.is-visible > *:nth-child(3){transition-delay:.19s}
+    .reveal-stagger.is-visible > *:nth-child(4){transition-delay:.26s}
+
+    /* Avatar modal (click to zoom) */
+    .modal-backdrop{
+      position:fixed; inset:0; background:rgba(0,0,0,.75);
+      display:none; align-items:center; justify-content:center; z-index:9999;
+      padding: 18px;
+    }
+    .modal{
+      width:min(900px,96vw);
+      height:min(85vh,900px);
+      background:#0c0c0d;
+      border:1px solid var(--border);
+      border-radius:14px;
+      box-shadow:0 10px 40px rgba(0,0,0,.6);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+    }
+    .modal header{
+      position: unset;
+      padding:12px 14px;
+      border-bottom:1px solid var(--border);
+      background: transparent;
+      backdrop-filter: none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .modal header h3{margin:0;font-size:1.05rem}
+    .close{
+      background:#151516;border:1px solid var(--border);
+      border-radius:10px;padding:8px 10px;color:var(--text);
+      cursor:pointer;
+    }
+    .modal-body{padding:14px; overflow:auto}
+    .modal-img{
+      width:100%; height:auto;
+      border-radius:14px;
+      border:1px solid var(--border);
+    }
+
+    @media (max-width:700px){
+      .wrap{padding:18px}
+      .avatar{width:120px;height:120px}
+      nav a{margin-left:10px}
+      header{padding:12px 0}
+      .hero{min-height: unset}
+    }
   </style>
 </head>
 
@@ -83,13 +206,14 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <img class="avatar" src="/antonio.jpeg" alt="Portrait of Antonio Yanchev" width="220" height="220" loading="eager" />
+        <img id="avatar" class="avatar" src="/antonio.jpeg" alt="Portrait of Antonio Yanchev (click to enlarge)" width="220" height="220" loading="eager" />
         <div>
           <div class="tag">👋 Hi, I’m</div>
           <strong style="font-size:1.15rem">Antonio Yanchev</strong>
           <div class="meta">London, UK • Graduate Software Developer</div>
         </div>
       </div>
+
       <nav aria-label="Primary">
         <a href="#projects">Projects</a>
         <a href="#building">Building</a>
@@ -102,33 +226,39 @@
     </header>
 
     <main id="main">
-      <section class="hero" aria-label="Introduction">
-        <h1>Graduate Software Developer — Full-Stack (Web)</h1>
-        <p class="sub">
-          Computer Science graduate with a strong foundation in software engineering, web development, data structures,
-          and applied machine learning. I’ve built full-stack web applications with <strong>Ionic React</strong>,
-          <strong>TypeScript</strong> and <strong>Firebase</strong>, integrated <strong>REST APIs</strong>, and improved
-          algorithms in coursework (e.g., implementing <strong>A*</strong> to improve route planning efficiency).
-          I’m looking for a <strong>graduate/junior role in London</strong> where I can contribute to real product work
-          and grow as a developer.
-        </p>
+      <section class="hero reveal" aria-label="Introduction">
+        <div>
+          <h1>Graduate Software Developer — Full-Stack (Web)</h1>
+          <p class="sub">
+            Computer Science graduate with a strong foundation in software engineering, web development, data structures,
+            and applied machine learning. I’ve built full-stack web applications with <strong>Ionic React</strong>,
+            <strong>TypeScript</strong> and <strong>Firebase</strong>, integrated <strong>REST APIs</strong>, and improved
+            algorithms in coursework (e.g., implementing <strong>A*</strong> to improve route planning efficiency).
+            I’m looking for a <strong>graduate/junior role in London</strong> where I can contribute to real product work
+            and grow as a developer.
+          </p>
 
-        <div class="pills" aria-label="Key skills">
-          <span class="pill">Ionic React</span><span class="pill">React</span><span class="pill">TypeScript</span>
-          <span class="pill">Firebase</span><span class="pill">REST APIs</span><span class="pill">Python</span>
-          <span class="pill">Java</span><span class="pill">SQL (Basics)</span>
-        </div>
+          <div class="pills" aria-label="Key skills">
+            <span class="pill">Ionic React</span><span class="pill">React</span><span class="pill">TypeScript</span>
+            <span class="pill">Firebase</span><span class="pill">REST APIs</span><span class="pill">Python</span>
+            <span class="pill">Java</span><span class="pill">SQL (Basics)</span>
+          </div>
 
-        <div class="inline-icons" style="margin-top:14px">
-          <a class="btn" href="mailto:antonio.yanchev@gmail.com?subject=Hello%20from%20your%20portfolio">Email</a>
-          <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <div class="inline-icons" style="margin-top:14px">
+            <a class="btn" href="mailto:antonio.yanchev@gmail.com?subject=Hello%20from%20your%20portfolio">Email</a>
+            <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+
+          <p class="meta" style="margin-top:14px">
+            Tip: click my profile photo to enlarge, then scroll — sections reveal as you go.
+          </p>
         </div>
       </section>
 
-      <section id="projects">
+      <section id="projects" class="reveal">
         <h2>Projects</h2>
-        <div class="grid">
+        <div class="grid reveal-stagger">
 
           <article class="card">
             <h3>FitTrak — Fitness &amp; Nutrition Web Application (Dissertation)</h3>
@@ -179,7 +309,7 @@
         </p>
       </section>
 
-      <section id="building">
+      <section id="building" class="reveal">
         <h2>What I’m Currently Building</h2>
         <div class="grid">
           <div class="card">
@@ -198,9 +328,9 @@
         </div>
       </section>
 
-      <section id="learning">
+      <section id="learning" class="reveal">
         <h2>What I Want to Learn Next</h2>
-        <div class="grid">
+        <div class="grid reveal-stagger">
           <div class="card">
             <h3>Linux &amp; Networking Fundamentals</h3>
             <p>Building stronger IT fundamentals alongside development (home lab + daily practice).</p>
@@ -230,7 +360,7 @@
         </div>
       </section>
 
-      <section id="about">
+      <section id="about" class="reveal">
         <h2>Interests &amp; Hobbies</h2>
         <div class="grid">
           <div class="card">
@@ -245,7 +375,7 @@
         </div>
       </section>
 
-      <section id="education">
+      <section id="education" class="reveal">
         <h2>Education</h2>
         <div class="card">
           <div class="row"><div class="k">Degree</div><div><strong>BSc (Hons) Computer Science</strong> — Oxford Brookes University</div></div>
@@ -257,9 +387,9 @@
         </div>
       </section>
 
-      <section id="skills">
+      <section id="skills" class="reveal">
         <h2>Skills</h2>
-        <div class="grid">
+        <div class="grid reveal-stagger">
           <div class="card">
             <h3>Programming</h3>
             <p>TypeScript/JavaScript, Python, Java, SQL, HTML5, CSS3</p>
@@ -296,7 +426,7 @@
         </div>
       </section>
 
-      <section id="contact">
+      <section id="contact" class="reveal">
         <h2>Contact</h2>
         <p class="meta">Best way to reach me: email or LinkedIn.</p>
         <p>
@@ -309,6 +439,87 @@
 
     <footer class="footer">© 2026 Antonio Yanchev • Last updated Jan 2026</footer>
   </div>
+
+  <!-- Avatar modal (click photo to enlarge) -->
+  <div id="avatarModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Profile photo">
+      <header>
+        <h3>Antonio Yanchev</h3>
+        <button class="close" id="closeAvatar" type="button" aria-label="Close">Close</button>
+      </header>
+      <div class="modal-body">
+        <img class="modal-img" src="/antonio.jpeg" alt="Portrait of Antonio Yanchev" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Reveal + avatar modal + active nav -->
+  <script>
+    // Respect reduced motion preferences
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 1) Scroll reveal
+    function makeVisible(el){ el.classList.add('is-visible'); }
+
+    if (!prefersReduced) {
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            makeVisible(entry.target);
+            observer.unobserve(entry.target);
+          }
+        }
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+    } else {
+      document.querySelectorAll('.reveal, .reveal-stagger').forEach(makeVisible);
+    }
+
+    // 2) Avatar lightbox
+    const avatar = document.getElementById('avatar');
+    const modal = document.getElementById('avatarModal');
+    const closeBtn = document.getElementById('closeAvatar');
+
+    function openModal(){
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+      closeBtn && closeBtn.focus();
+    }
+    function closeModal(){
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+      avatar && avatar.focus && avatar.focus();
+    }
+
+    avatar && avatar.addEventListener('click', openModal);
+    closeBtn && closeBtn.addEventListener('click', closeModal);
+    modal && modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    // 3) Active section highlight in nav
+    const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
+    const sections = navLinks
+      .map(a => document.querySelector(a.getAttribute('href')))
+      .filter(Boolean);
+
+    if (sections.length) {
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(a => a.setAttribute('aria-current', 'false'));
+            const id = '#' + entry.target.id;
+            const active = navLinks.find(a => a.getAttribute('href') === id);
+            if (active) active.setAttribute('aria-current', 'true');
+          }
+        });
+      }, { rootMargin: '-35% 0px -55% 0px', threshold: 0.01 });
+
+      sections.forEach(s => navObserver.observe(s));
+    }
+  </script>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
