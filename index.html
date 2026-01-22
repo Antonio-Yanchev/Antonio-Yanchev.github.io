@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Antonio Yanchev — Software Developer Portfolio</title>
-  <meta name="description" content="Junior React/Ionic developer building fast, accessible web apps with Firebase + TypeScript. Open to junior roles in web/frontend, mobile, entry-level data/ML, and IT." />
+  <title>Antonio Yanchev — Graduate Software Developer</title>
+
+  <meta name="description" content="Computer Science graduate (2:1) building full-stack web apps with Ionic React, TypeScript and Firebase. Experience with REST APIs, applied ML coursework, and algorithmic problem solving. Open to graduate/junior roles in London." />
   <link rel="canonical" href="https://antonio-yanchev.github.io" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#000000" />
   <meta name="color-scheme" content="dark" />
 
-  <!-- Strict but compatible CSP (no inline JS needed now) -->
+  <!-- CSP: allow inline JSON-LD -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
                  img-src 'self' data:;
                  style-src 'self' 'unsafe-inline';
-                 script-src 'self';
+                 script-src 'self' 'unsafe-inline';
                  frame-src 'self';
                  frame-ancestors 'self';
                  base-uri 'self'">
@@ -43,7 +44,7 @@
     .brand{display:flex;align-items:center;gap:12px}
 
     .avatar{
-      width:320px;height:320px;border-radius:50%;
+      width:220px;height:220px;border-radius:50%;
       object-fit:cover;object-position:center;
       border:1px solid var(--border);
       box-shadow:0 2px 8px rgba(0,0,0,.6);
@@ -58,14 +59,14 @@
     h1{margin:0 0 10px;font-size:clamp(28px,4vw,40px)}
     h2{font-size:1.4rem;margin:0 0 12px}
     .sub{color:var(--muted)}
-    .pills{margin-top:8px}
+    .meta{color:var(--muted);font-size:.95rem}
+    .pills{margin-top:10px}
     .pill{display:inline-block;padding:6px 10px;margin:6px 8px 0 0;border-radius:999px;background:#101011;border:1px solid var(--border);font-size:.9rem}
     section{margin-top:34px}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
     .card h3{margin:.2rem 0 .4rem}
     .card p{margin:.2rem 0 .6rem}
-    .meta{color:var(--muted);font-size:.95rem}
     .row{display:flex;gap:10px;align-items:flex-start}
     .row .k{min-width:140px;color:var(--muted)}
     .footer{margin-top:40px;color:var(--muted);font-size:.95rem}
@@ -77,30 +78,34 @@
       position:fixed;inset:0;background:rgba(0,0,0,.75);
       display:none;align-items:center;justify-content:center;z-index:9999;
     }
-    /* when the hash points to this element, it becomes visible */
     #resume-viewer:target{display:flex}
     .modal{width:min(1000px,94vw);height:min(85vh,900px);background:#0c0c0d;border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,.6);display:flex;flex-direction:column}
     .modal header{padding:12px 14px;border-bottom:1px solid var(--border);justify-content:space-between;display:flex;align-items:center}
     .modal header h3{margin:0;font-size:1.05rem}
     .modal .frame{flex:1;border:0;border-bottom-left-radius:14px;border-bottom-right-radius:14px}
     .close{background:#151516;border:1px solid var(--border);border-radius:10px;padding:6px 10px;color:var(--text);text-decoration:none}
+
+    ul{margin:10px 0 0 1.1rem}
+    li{margin:.25rem 0}
   </style>
 </head>
+
 <body>
   <a class="sr-only" href="#main">Skip to content</a>
 
   <div class="wrap">
     <header>
       <div class="brand">
-        <img class="avatar" src="/antonio.jpeg" alt="Portrait of Antonio Yanchev" width="320" height="320" loading="eager" />
+        <img class="avatar" src="/antonio.jpeg" alt="Portrait of Antonio Yanchev" width="220" height="220" loading="eager" />
         <div>
-          <div class="tag">👋 Hi, I'm</div>
+          <div class="tag">👋 Hi, I’m</div>
           <strong style="font-size:1.15rem">Antonio Yanchev</strong>
+          <div class="meta">London, UK • Right to work: UK (Settled Status) • Available: Immediate</div>
         </div>
       </div>
       <nav aria-label="Primary">
         <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
+        <a href="#focus">Focus</a>
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
@@ -110,161 +115,179 @@
 
     <main id="main">
       <section class="hero" aria-label="Introduction">
-        <h1>Junior React/Ionic Developer — Web & Mobile</h1>
+        <h1>Graduate Software Developer — Full-Stack (Web)</h1>
         <p class="sub">
-          I build responsive, accessible interfaces with React, TypeScript and Ionic, and ship them quickly using Firebase (Auth/Firestore/Hosting).
-          Comfortable integrating REST APIs and measuring UX impact, with extra experience in Python/Java for tooling and simulations.
-          I’m London-based, reliable under pressure from hospitality work, and looking for a team where I can contribute to real product
-          features, learn modern testing/CI, and grow into a strong front-end engineer.
+          Computer Science graduate with a strong foundation in software engineering, web development, data structures,
+          and applied machine learning. I’ve built full-stack web applications with <strong>Ionic React</strong>,
+          <strong>TypeScript</strong> and <strong>Firebase</strong>, integrated <strong>REST APIs</strong>, and improved
+          algorithms in coursework (e.g., implementing <strong>A*</strong> to improve route planning efficiency).
+          I’m looking for a <strong>graduate/junior role in London</strong> where I can contribute to real product work,
+          improve testing/CI practices, and grow as a developer.
         </p>
+
         <div class="pills" aria-label="Key skills">
-          <span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">Ionic</span>
-          <span class="pill">Firebase</span><span class="pill">Python</span><span class="pill">Java</span>
-          <span class="pill">SQL</span><span class="pill">R (ML basics)</span>
+          <span class="pill">Ionic React</span><span class="pill">React</span><span class="pill">TypeScript</span>
+          <span class="pill">Firebase</span><span class="pill">REST APIs</span><span class="pill">Python</span>
+          <span class="pill">Java</span><span class="pill">SQL</span>
         </div>
+
         <div class="inline-icons" style="margin-top:14px">
-          <a class="btn" href="mailto:antonio.yanchev@gmail.com?subject=Hello%20from%20your%20portfolio">Email</a>
+          <a class="btn" href="mailto:a.yanchevv@gmail.com?subject=Hello%20from%20your%20portfolio">Email</a>
           <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </section>
 
       <section id="projects">
-        <h2>Some of my projects</h2>
+        <h2>Projects</h2>
         <div class="grid">
+
           <article class="card">
-            <h3>Fit-Trak (Dissertation)</h3>
-            <p>Ionic React + Firebase app for meal &amp; workout tracking with USDA FoodData API and AI-assisted plan generation.</p>
-            <p class="meta">Ionic • React • TypeScript • Firebase • REST APIs</p>
+            <h3>FitTrak — Fitness &amp; Nutrition Web Application (Dissertation)</h3>
+            <p class="meta">Ionic React • TypeScript • Firebase • REST APIs</p>
+            <ul>
+              <li>Designed and developed a full-stack web application for tracking meals and workouts.</li>
+              <li>Implemented authentication and data persistence using Firebase Authentication and Firestore.</li>
+              <li>Integrated USDA FoodData Central API and OpenAI API to generate meal and workout suggestions.</li>
+              <li>Built reusable components with responsive layouts and robust loading/error handling.</li>
+            </ul>
           </article>
+
           <article class="card">
-            <h3>Taxi Dispatch Simulation</h3>
-            <p>Python agent-based simulation with A* pathfinding and dispatcher logic to reduce idle time and maximize fares.</p>
-            <p class="meta">Python • A* • Simulation</p>
+            <h3>Taxi Dispatch Simulation (Coursework)</h3>
+            <p class="meta">Python • A* • OOP</p>
+            <ul>
+              <li>Redesigned route-planning logic by replacing DFS with the A* search algorithm.</li>
+              <li>Improved route optimality and runtime efficiency with measurable performance improvements.</li>
+              <li>Modelled taxis, dispatchers, and routes using object-oriented design.</li>
+              <li>Added analytical metrics to calculate dispatcher revenue and taxi earnings.</li>
+            </ul>
           </article>
+
           <article class="card">
-            <h3>Penguins ML</h3>
-            <p>kNN vs Naïve Bayes with cross-validation, PCA, confusion matrices, and ROC analysis on the Palmer Penguins dataset.</p>
-            <p class="meta">R • ML • Data Visualisation</p>
+            <h3>ClaCloManager — Course &amp; Records Platform (Group Project)</h3>
+            <p class="meta">React • TypeScript • Git • UML</p>
+            <ul>
+              <li>Collaborated in an agile team to design and implement a course &amp; records management system.</li>
+              <li>Built core UI views (forms, tables, lists) with routing and basic state management.</li>
+              <li>Contributed to UML design, role-based access concepts, and peer code reviews.</li>
+            </ul>
           </article>
+
           <article class="card">
-            <h3>ClaClo-Manager (Group Project)</h3>
-            <p>Subsystem for multi-tenant university platform—manager console for curriculum, accounts &amp; audit trails.</p>
-            <p class="meta">React • TypeScript • Team collaboration</p>
+            <h3>Machine Learning Coursework — Palmer Penguins</h3>
+            <p class="meta">Python • R • ML evaluation</p>
+            <ul>
+              <li>Compared kNN and Naïve Bayes using train/test splits and 10-fold cross-validation.</li>
+              <li>Applied normalisation and PCA to improve model performance.</li>
+              <li>Evaluated results using confusion matrices, ROC curves, and F1 scores.</li>
+            </ul>
           </article>
+
+        </div>
+
+        <p class="meta" style="margin-top:12px">
+          Tip: add “Repo” / “Live demo” links inside each card once you’re ready (it increases recruiter click-through).
+        </p>
+      </section>
+
+      <section id="focus">
+        <h2>Current Focus</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Job Tracker (Self Project — WIP)</h3>
+            <p>
+              Building a job application tracking app to manage applications, interview stages, notes, follow-ups, and simple analytics.
+            </p>
+            <p class="meta">
+              Planned focus: clean data model • filtering/search • dashboards • good documentation
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Linux &amp; Networking Fundamentals</h3>
+            <p>
+              Strengthening core IT fundamentals alongside development: command-line workflows, Linux administration, and networking basics.
+            </p>
+            <p class="meta">
+              Working towards: CompTIA Linux+ • LPIC-1 • Cisco (CCNA track)
+            </p>
+          </div>
         </div>
       </section>
-<section id="experience">
-  <h2>Experience</h2>
-
-  <!-- Current Role -->
-  <div class="card">
-    <div class="row">
-      <div class="k">Current Role</div>
-      <div>
-        <div><strong>Waiter — Happy London</strong></div>
-        <div>Central London <span class="meta">(Jun 2025 – Present)</span></div>
-      </div>
-    </div>
-    <ul style="margin:8px 0 0 1.1rem">
-      <li>Fast, accurate service in a high-volume venue using POS/handhelds.</li>
-      <li>Coordinate with kitchen/bar to keep ticket times on track; resolve issues calmly.</li>
-      <li>Maintain floor standards; support opening/closing.</li>
-    </ul>
-  </div>
-
-  <!-- Previous Role -->
-  <div class="card">
-    <div class="row">
-      <div class="k">Previous</div>
-      <div>
-        <div><strong>Food Runner — Happy London</strong></div>
-        <div>Central London <span class="meta">(Jul 2024 – Jun 2025)</span></div>
-      </div>
-    </div>
-    <ul style="margin:8px 0 0 1.1rem">
-      <li>Ran dishes from the pass; checked dockets and explained allergens/specials.</li>
-      <li>Prioritised tickets with the kitchen to keep service flow smooth during peaks.</li>
-      <li>Prepared sections pre-service and turned tables quickly.</li>
-    </ul>
-  </div>
-
-  <!-- Previous Role -->
-  <div class="card">
-    <div class="row">
-      <div class="k">Previous</div>
-      <div>
-        <div><strong>Kitchen Associate — J D Wetherspoon (Swan & Castle)</strong></div>
-        <div>Oxford <span class="meta">(Jan 2024 – May 2024)</span></div>
-      </div>
-    </div>
-    <ul style="margin:8px 0 0 1.1rem">
-      <li>Prep and line service to spec; upheld food-safety and hygiene standards.</li>
-      <li>Stock rotation, deliveries and waste control; opening/closing checks.</li>
-    </ul>
-  </div>
-
-  <!-- Previous Role -->
-  <div class="card">
-    <div class="row">
-      <div class="k">Previous</div>
-      <div>
-        <div><strong>Food Runner — SUSHISAMBA</strong></div>
-        <div>Covent Garden, London <span class="meta">(Sep 2021 – Aug 2023)</span></div>
-      </div>
-    </div>
-    <ul style="margin:8px 0 0 1.1rem">
-      <li>Delivered and explained dishes to brand standards in a premium, fast-paced setting.</li>
-      <li>Liaised between kitchen and floor; prioritised orders at the pass.</li>
-      <li>Prepared sections and supported opening/closing.</li>
-    </ul>
-  </div>
-
-</section>
 
       <section id="education">
         <h2>Education</h2>
         <div class="card">
           <div class="row"><div class="k">Degree</div><div><strong>BSc (Hons) Computer Science</strong> — Oxford Brookes University</div></div>
-          <div class="row"><div class="k">Classification</div><div>Upper Second-class (2:1) — 67%</div></div>
-          <div class="row"><div class="k">Highlights</div><div>Dissertation: Fit-Trak; Projects: Taxi Dispatch Simulation; Penguins ML.</div></div>
+          <div class="row"><div class="k">Classification</div><div>Upper Second-Class Honours (2:1) — 67% (Awarded 2025)</div></div>
+          <div class="row">
+            <div class="k">Relevant modules</div>
+            <div>Web Development • Software Engineering • Data Structures &amp; Algorithms • Databases • Machine Learning • Advanced OOP</div>
+          </div>
         </div>
       </section>
 
       <section id="skills">
         <h2>Skills</h2>
         <div class="grid">
-          <div class="card"><h3>Programming Languages</h3><p>TypeScript/JavaScript, Python, Java, SQL, HTML, CSS, C/C++ (basic), XML.</p></div>
-          <div class="card"><h3>Frameworks &amp; Libraries</h3><p>React, Ionic, Node (basics), R (ML coursework).</p></div>
-          <div class="card"><h3>Platforms &amp; Databases</h3><p>Firebase (Auth, Firestore/Storage, Hosting), MySQL (basics), REST APIs.</p></div>
-          <div class="card"><h3>Tools</h3><p>Git/GitHub, VS Code</p><p>Learning: AWS, Jira, Docker (basics).</p></div>
-          <div class="card"><h3>Strengths</h3><p>UI implementation, API integration, debugging, clean code, collaboration.</p></div>
-          <div class="card"><h3>Languages</h3><p>English, Bulgarian.</p></div>
+          <div class="card">
+            <h3>Programming</h3>
+            <p>TypeScript/JavaScript, Python, Java, SQL, HTML5, CSS3</p>
+            <p class="meta">Basic: C/C++, XML</p>
+          </div>
+
+          <div class="card">
+            <h3>Web &amp; App Development</h3>
+            <p>React, Ionic (React), Flask</p>
+            <p class="meta">Focus: UI implementation, API integration, debugging, clean code</p>
+          </div>
+
+          <div class="card">
+            <h3>Backend / Data</h3>
+            <p>Firebase (Auth, Firestore, Storage), REST APIs, SQL fundamentals</p>
+            <p class="meta">Tools: Postman, CLI</p>
+          </div>
+
+          <div class="card">
+            <h3>Data &amp; ML (Applied Coursework)</h3>
+            <p>EDA, data cleaning, kNN, Naïve Bayes, PCA, cross-validation, metrics (precision/recall/F1/ROC)</p>
+          </div>
+
+          <div class="card">
+            <h3>Tools &amp; Practices</h3>
+            <p>Git/GitHub, VS Code, JetBrains IDEs</p>
+            <p class="meta">Agile teamwork • basic system design</p>
+          </div>
+
+          <div class="card">
+            <h3>Languages</h3>
+            <p>English (Fluent), Bulgarian (Native)</p>
+          </div>
         </div>
       </section>
 
-     <!-- <section id="resume">
+      <section id="resume">
         <h2>Resume</h2>
         <div class="card">
-          <p class="meta">Click below to view my resume in a viewer (no automatic download).</p>
+          <p class="meta">View my CV without downloading (opens an embedded viewer).</p>
           <p><a class="btn" href="#resume-viewer">View Resume</a></p>
-          <!-- Fallback direct open in a new tab (in case CSS is disabled) 
-          <p class="meta">If the viewer doesn’t open, <a href="/Antonio_Yanchev_CV.pdf" target="_blank" rel="noopener noreferrer">open the PDF in a new tab</a>.</p>
+          <p class="meta">Fallback: <a href="/Antonio_Yanchev_CV.pdf" target="_blank" rel="noopener noreferrer">Open PDF in a new tab</a>.</p>
         </div>
-      </section> 
-     -->
+      </section>
 
       <section id="contact">
         <h2>Contact</h2>
-        <!-- <p class="meta">I usually reply within 48 hours (Europe/London).</p> -->
+        <p class="meta">Best way to reach me: email or LinkedIn.</p>
         <p>
-          <a class="btn" href="mailto:antonio.yanchev@gmail.com?subject=Hello%20from%20your%20portfolio">antonio.yanchev@gmail.com</a>
+          <a class="btn" href="mailto:a.yanchevv@gmail.com?subject=Hello%20from%20your%20portfolio">a.yanchevv@gmail.com</a>
           <a class="btn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a class="btn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </p>
+      </section>
     </main>
 
-    <footer class="footer">© <span id="year">2025</span> Antonio Yanchev • Last updated <span id="updated">Mar 2025</span></footer>
+    <footer class="footer">© 2026 Antonio Yanchev • Last updated Jan 2026</footer>
   </div>
 
   <!-- NO-JS modal target -->
@@ -274,22 +297,20 @@
         <h3>Resume — Antonio Yanchev</h3>
         <a class="close" href="#resume" aria-label="Close resume viewer">Close</a>
       </header>
-      <!-- your PDF at the site root -->
       <iframe class="frame" src="/Antonio_Yanchev_CV.pdf" title="Resume PDF"></iframe>
     </div>
   </div>
 
-  <!-- JSON-LD -->
+  <!-- JSON-LD (no phone number included) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Antonio Yanchev",
     "url": "https://antonio-yanchev.github.io",
-    "jobTitle": "Junior Web/Mobile/Data/IT",
+    "jobTitle": "Graduate Software Developer",
     "address": {"@type":"PostalAddress","addressLocality":"London","addressCountry":"UK"},
-    "email": "mailto:antonio.yanchev@gmail.com",
-    "telephone": "+447464725420",
+    "email": "mailto:a.yanchevv@gmail.com",
     "image": "https://antonio-yanchev.github.io/antonio.jpeg",
     "sameAs": [
       "https://github.com/Antonio-Yanchev",
