@@ -1,718 +1,1004 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Antonio Yanchev — Graduate Software Developer</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Antonio Yanchev — Graduate Software Developer</title>
 
-  <meta name="description" content="Computer Science graduate (2:1) building full-stack web apps with Ionic React, TypeScript and Firebase. Experience with REST APIs, applied ML coursework, and algorithmic problem solving. Open to graduate/junior roles in London." />
-  <link rel="canonical" href="https://antonio-yanchev.github.io" />
-  <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#0b1220" />
-  <meta name="color-scheme" content="dark" />
+    <meta
+      name="description"
+      content="Computer Science graduate (2:1) building full-stack web apps with Ionic React, TypeScript and Firebase. Experience with REST APIs, applied ML coursework, and algorithmic problem solving. Open to graduate/junior roles in London."
+    />
+    <link rel="canonical" href="https://antonio-yanchev.github.io" />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0b1220" />
+    <meta name="color-scheme" content="dark" />
 
-  <!-- CSP: inline scripts used for reveal + modal + active nav -->
-  <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self';
+    <!-- CSP: inline scripts used for reveal + modal + active nav -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self';
                  img-src 'self' data:;
                  style-src 'self' 'unsafe-inline';
                  script-src 'self' 'unsafe-inline';
                  frame-src 'self';
                  frame-ancestors 'self';
-                 base-uri 'self'">
-  <meta name="referrer" content="no-referrer" />
-  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+                 base-uri 'self'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Permissions-Policy"
+      content="geolocation=(), microphone=(), camera=()"
+    />
 
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="preload" as="image" href="/antonio.jpeg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preload" as="image" href="/antonio.jpeg" />
 
-  <style>
-    :root{
-      --bg0:#070a12;
-      --bg1:#0b1220;
-      --bg2:#0a1630;
+    <style>
+      :root {
+        --bg0: #070a12;
+        --bg1: #0b1220;
+        --bg2: #0a1630;
 
-      --card: rgba(255,255,255,.03);
-      --border: rgba(148,163,184,.14);
+        --card: rgba(255, 255, 255, 0.03);
+        --border: rgba(148, 163, 184, 0.14);
 
-      --text:#e5e7eb;
-      --muted:#93a4b8;
-      --muted2:#7f93aa;
+        --text: #e5e7eb;
+        --muted: #93a4b8;
+        --muted2: #7f93aa;
 
-      --accent:#5eead4;     /* teal */
-      --accent2:#7aa2ff;    /* soft blue */
-      --ring: rgba(94,234,212,.28);
+        --accent: #5eead4; /* teal */
+        --accent2: #7aa2ff; /* soft blue */
+        --ring: rgba(94, 234, 212, 0.28);
 
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --radius: 16px;
-    }
+        --shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+        --radius: 16px;
+      }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      color:var(--text);
-      font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
-      background:
-        radial-gradient(1200px 900px at 15% 10%, rgba(122,162,255,.12), transparent 60%),
-        radial-gradient(900px 700px at 70% 35%, rgba(94,234,212,.10), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1) 45%, var(--bg2));
-      min-height:100vh;
-    }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        color: var(--text);
+        font:
+          16px/1.65 system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Inter,
+          Arial;
+        background:
+          radial-gradient(
+            1200px 900px at 15% 10%,
+            rgba(122, 162, 255, 0.12),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 700px at 70% 35%,
+            rgba(94, 234, 212, 0.1),
+            transparent 60%
+          ),
+          linear-gradient(180deg, var(--bg0), var(--bg1) 45%, var(--bg2));
+        min-height: 100vh;
+      }
 
-    a{color:inherit}
-    a:hover{color:var(--accent)}
+      a {
+        color: inherit;
+      }
+      a:hover {
+        color: var(--accent);
+      }
 
-    .sr-only{
-      position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
-      clip:rect(0,0,0,0);white-space:nowrap;border:0
-    }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
 
-    .wrap{max-width:1120px;margin:0 auto;padding:32px 22px}
+      .wrap {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 32px 22px;
+      }
 
-    /* ===== Layout ===== */
-    .layout{
-      display:grid;
-      grid-template-columns: 360px 1fr;
-      gap: 32px;
-      align-items:start;
-    }
+      /* ===== Layout ===== */
+      .layout {
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 32px;
+        align-items: start;
+      }
 
-    aside{
-      position:sticky;
-      top: 26px;
-      height: calc(100vh - 52px);
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      padding: 8px 0;
-    }
+      aside {
+        position: sticky;
+        top: 26px;
+        height: calc(100vh - 52px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 8px 0;
+      }
 
-    main{
-      padding: 4px 0 40px;
-    }
+      main {
+        padding: 4px 0 40px;
+      }
 
-    @media (max-width: 980px){
-      .layout{grid-template-columns: 1fr; gap: 22px;}
-      aside{
-        position:relative;
-        height:auto;
-        top:auto;
+      @media (max-width: 980px) {
+        .layout {
+          grid-template-columns: 1fr;
+          gap: 22px;
+        }
+        aside {
+          position: relative;
+          height: auto;
+          top: auto;
+          padding: 0;
+        }
+      }
+
+      /* ===== Sidebar top ===== */
+      .brand {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .avatar {
+        width: 68px;
+        height: 68px;
+        border-radius: 999px;
+        object-fit: cover;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.02);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        cursor: zoom-in;
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease;
+      }
+      .avatar:hover {
+        transform: translateY(-1px);
+        border-color: rgba(94, 234, 212, 0.3);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 40px;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+      }
+      .role {
+        margin: 10px 0 10px;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .tagline {
+        margin: 0;
+        color: var(--muted);
+        max-width: 34ch;
+      }
+
+      /* ===== Sidebar nav ===== */
+      nav {
+        margin-top: 26px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .navlink {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: var(--muted2);
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 6px 0;
+        width: max-content;
+      }
+
+      .navline {
+        width: 40px;
+        height: 1px;
+        background: rgba(148, 163, 184, 0.25);
+        transition:
+          width 0.18s ease,
+          background 0.18s ease;
+      }
+
+      .navlink[aria-current="true"] {
+        color: var(--text);
+      }
+      .navlink[aria-current="true"] .navline {
+        width: 64px;
+        background: rgba(94, 234, 212, 0.75);
+      }
+
+      /* ===== Social icons ===== */
+      .social {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        padding-top: 18px;
+      }
+      .iconbtn {
+        width: 38px;
+        height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        background: rgba(255, 255, 255, 0.02);
+        transition:
+          transform 0.15s ease,
+          border-color 0.15s ease,
+          background 0.15s ease;
+        text-decoration: none;
+      }
+      .iconbtn:hover {
+        transform: translateY(-1px);
+        border-color: rgba(94, 234, 212, 0.35);
+        background: rgba(94, 234, 212, 0.06);
+      }
+      .iconbtn:focus {
+        outline: 2px solid var(--ring);
+        outline-offset: 2px;
+      }
+      .icon {
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: rgba(229, 231, 235, 0.92);
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      /* ===== Main content ===== */
+      .section {
+        padding: 18px 0 8px;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+      }
+      .section:last-of-type {
+        border-bottom: 0;
+      }
+
+      h2 {
+        margin: 0 0 14px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: rgba(148, 163, 184, 0.88);
+      }
+
+      .lead {
+        margin: 0 0 18px;
+        color: var(--muted);
+        max-width: 78ch;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        border: 1px solid rgba(148, 163, 184, 0.14);
+        background: var(--card);
+        border-radius: var(--radius);
+        padding: 16px 16px 14px;
+        box-shadow: none;
+        transition:
+          transform 0.15s ease,
+          border-color 0.15s ease,
+          background 0.15s ease;
+      }
+      .card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(94, 234, 212, 0.22);
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .card h3 {
+        margin: 0 0 6px;
+        font-size: 16px;
+        letter-spacing: -0.01em;
+      }
+
+      .meta {
+        margin: 0 0 10px;
+        font-size: 13px;
+        color: rgba(148, 163, 184, 0.88);
+      }
+
+      ul {
+        margin: 10px 0 0 1.1rem;
+        color: var(--muted);
         padding: 0;
       }
-    }
+      li {
+        margin: 0.28rem 0;
+      }
 
-    /* ===== Sidebar top ===== */
-    .brand{
-      display:flex;
-      gap:14px;
-      align-items:center;
-    }
+      .footer {
+        margin-top: 36px;
+        color: rgba(148, 163, 184, 0.78);
+        font-size: 13px;
+      }
 
-    .avatar{
-      width:68px;height:68px;
-      border-radius:999px;
-      object-fit:cover;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.02);
-      box-shadow: 0 8px 24px rgba(0,0,0,.35);
-      cursor: zoom-in;
-      transition: transform .18s ease, border-color .18s ease;
-    }
-    .avatar:hover{transform: translateY(-1px); border-color: rgba(94,234,212,.30);}
+      /* ===== Scroll reveal ===== */
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease;
+        will-change: opacity, transform;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-stagger > * {
+        opacity: 0;
+        transform: translateY(10px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease;
+      }
+      .reveal-stagger.is-visible > * {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-stagger.is-visible > *:nth-child(1) {
+        transition-delay: 0.05s;
+      }
+      .reveal-stagger.is-visible > *:nth-child(2) {
+        transition-delay: 0.12s;
+      }
+      .reveal-stagger.is-visible > *:nth-child(3) {
+        transition-delay: 0.19s;
+      }
+      .reveal-stagger.is-visible > *:nth-child(4) {
+        transition-delay: 0.26s;
+      }
 
-    h1{
-      margin:0;
-      font-size: 40px;
-      letter-spacing:-0.02em;
-      line-height:1.1;
-    }
-    .role{
-      margin: 10px 0 10px;
-      font-weight:600;
-      color: var(--text);
-    }
-    .tagline{
-      margin: 0;
-      color: var(--muted);
-      max-width: 34ch;
-    }
-
-    /* ===== Sidebar nav ===== */
-    nav{
-      margin-top: 26px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-
-    .navlink{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      text-decoration:none;
-      color: var(--muted2);
-      font-size: 12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      padding: 6px 0;
-      width:max-content;
-    }
-
-    .navline{
-      width: 40px;
-      height: 1px;
-      background: rgba(148,163,184,.25);
-      transition: width .18s ease, background .18s ease;
-    }
-
-    .navlink[aria-current="true"]{
-      color: var(--text);
-    }
-    .navlink[aria-current="true"] .navline{
-      width: 64px;
-      background: rgba(94,234,212,.75);
-    }
-
-    /* ===== Social icons ===== */
-    .social{
-      display:flex;
-      gap:14px;
-      align-items:center;
-      padding-top: 18px;
-    }
-    .iconbtn{
-      width: 38px;
-      height: 38px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,.18);
-      background: rgba(255,255,255,.02);
-      transition: transform .15s ease, border-color .15s ease, background .15s ease;
-      text-decoration:none;
-    }
-    .iconbtn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(94,234,212,.35);
-      background: rgba(94,234,212,.06);
-    }
-    .iconbtn:focus{
-      outline:2px solid var(--ring);
-      outline-offset: 2px;
-    }
-    .icon{
-      width:18px;height:18px;
-      fill: none;
-      stroke: rgba(229,231,235,.92);
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    /* ===== Main content ===== */
-    .section{
-      padding: 18px 0 8px;
-      border-bottom: 1px solid rgba(148,163,184,.10);
-    }
-    .section:last-of-type{border-bottom:0}
-
-    h2{
-      margin:0 0 14px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      color: rgba(148,163,184,.88);
-    }
-
-    .lead{
-      margin: 0 0 18px;
-      color: var(--muted);
-      max-width: 78ch;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 14px;
-    }
-
-    .card{
-      border: 1px solid rgba(148,163,184,.14);
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 16px 16px 14px;
-      box-shadow: none;
-      transition: transform .15s ease, border-color .15s ease, background .15s ease;
-    }
-    .card:hover{
-      transform: translateY(-2px);
-      border-color: rgba(94,234,212,.22);
-      background: rgba(255,255,255,.035);
-    }
-
-    .card h3{
-      margin:0 0 6px;
-      font-size: 16px;
-      letter-spacing:-0.01em;
-    }
-
-    .meta{
-      margin:0 0 10px;
-      font-size: 13px;
-      color: rgba(148,163,184,.88);
-    }
-
-    ul{margin:10px 0 0 1.1rem; color: var(--muted); padding:0}
-    li{margin:.28rem 0}
-
-    .footer{
-      margin-top: 36px;
-      color: rgba(148,163,184,.78);
-      font-size: 13px;
-    }
-
-    /* ===== Scroll reveal ===== */
-    .reveal{
-      opacity:0;
-      transform: translateY(14px);
-      transition: opacity .55s ease, transform .55s ease;
-      will-change: opacity, transform;
-    }
-    .reveal.is-visible{
-      opacity:1;
-      transform: translateY(0);
-    }
-    .reveal-stagger > *{
-      opacity:0;
-      transform: translateY(10px);
-      transition: opacity .55s ease, transform .55s ease;
-    }
-    .reveal-stagger.is-visible > *{
-      opacity:1;
-      transform: translateY(0);
-    }
-    .reveal-stagger.is-visible > *:nth-child(1){transition-delay:.05s}
-    .reveal-stagger.is-visible > *:nth-child(2){transition-delay:.12s}
-    .reveal-stagger.is-visible > *:nth-child(3){transition-delay:.19s}
-    .reveal-stagger.is-visible > *:nth-child(4){transition-delay:.26s}
-
-    @media (prefers-reduced-motion: reduce){
-      .reveal, .reveal-stagger > *{opacity:1 !important; transform:none !important; transition:none !important;}
-      .card, .iconbtn, .avatar{transition:none !important;}
-    }
-
-    /* ===== Avatar modal ===== */
-    .modal-backdrop{
-      position:fixed; inset:0;
-      background: rgba(0,0,0,.75);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-      padding: 18px;
-    }
-    .modal{
-      width:min(860px,96vw);
-      height:min(86vh,900px);
-      background: rgba(10,14,24,.96);
-      border: 1px solid rgba(148,163,184,.18);
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-    }
-    .modal-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding: 12px 14px;
-      border-bottom: 1px solid rgba(148,163,184,.16);
-    }
-    .modal-title{margin:0;font-size:14px;color: rgba(229,231,235,.92);letter-spacing:.02em}
-    .close{
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(148,163,184,.18);
-      border-radius: 10px;
-      color: var(--text);
-      padding: 8px 10px;
-      cursor:pointer;
-    }
-    .close:focus{outline:2px solid var(--ring);outline-offset:2px}
-    .modal-body{padding: 14px; overflow:auto;}
-    .modal-img{
-      width:100%;
-      height:auto;
-      border-radius: 14px;
-      border: 1px solid rgba(148,163,184,.16);
-    }
-  </style>
-</head>
-
-<body>
-  <a class="sr-only" href="#content">Skip to content</a>
-
-  <div class="wrap">
-    <div class="layout">
-      <!-- ===== Left sidebar ===== -->
-      <aside>
-        <div>
-          <div class="brand">
-            <img id="avatar" class="avatar" src="/antonio.jpeg" alt="Portrait of Antonio Yanchev (click to enlarge)" width="68" height="68" loading="eager" />
-            <div>
-              <div class="tagline" style="margin:0;color:rgba(148,163,184,.95);font-size:12px;letter-spacing:.12em;text-transform:uppercase;">Antonio Yanchev</div>
-              <div class="role">Graduate Software Developer</div>
-            </div>
-          </div>
-
-          <h1 style="margin-top:18px;">Building practical, clean web apps.</h1>
-          <p class="tagline" style="margin-top:12px;">
-            Computer Science (2:1). Ionic React + TypeScript + Firebase.
-            Interested in full-stack, data, and strong fundamentals.
-          </p>
-
-          <nav aria-label="Sections">
-            <a class="navlink" href="#projects"><span class="navline"></span><span>Projects</span></a>
-            <a class="navlink" href="#building"><span class="navline"></span><span>Building</span></a>
-            <a class="navlink" href="#learning"><span class="navline"></span><span>Learning</span></a>
-            <a class="navlink" href="#about"><span class="navline"></span><span>Interests</span></a>
-            <a class="navlink" href="#education"><span class="navline"></span><span>Education</span></a>
-            <a class="navlink" href="#skills"><span class="navline"></span><span>Skills</span></a>
-            <a class="navlink" href="#contact"><span class="navline"></span><span>Contact</span></a>
-          </nav>
-        </div>
-
-        <!-- Social icons (single place, like the example) -->
-        <div class="social" aria-label="Social links">
-          <a class="iconbtn" href="https://github.com/Antonio-Yanchev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <!-- GitHub icon -->
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M9 19c-4 1.5-4-2-5-2m10 4v-3.5c0-1 .1-1.4-.5-2 2 0 4-.5 4-4 0-1-.3-2-1-2.7.1-.3.5-1.5-.1-2.7 0 0-1 0-2.8 1.2-.8-.2-1.7-.3-2.6-.3s-1.8.1-2.6.3C6.2 6.1 5.2 6.1 5.2 6.1c-.6 1.2-.2 2.4-.1 2.7C4.4 9.5 4 10.5 4 11.5c0 3.5 2 4 4 4-.4.4-.6.8-.6 1.6V21" />
-            </svg>
-          </a>
-
-          <a class="iconbtn" href="https://www.linkedin.com/in/antonio-yanchev-00a938227/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <!-- LinkedIn icon -->
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2" />
-              <path d="M2 9h4v12H2z" />
-              <path d="M4 4a2 2 0 1 0 0 .01" />
-            </svg>
-          </a>
-
-          <a class="iconbtn" href="mailto:antonio.yanchev@gmail.com?subject=Hello%20from%20your%20portfolio" aria-label="Email">
-            <!-- Mail icon -->
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 4h16v16H4z" />
-              <path d="M4 6l8 7 8-7" />
-            </svg>
-          </a>
-        </div>
-      </aside>
-
-      <!-- ===== Right content ===== -->
-      <main id="content">
-        <section id="projects" class="section reveal" aria-label="Projects">
-          <h2>Projects</h2>
-          <p class="lead">
-            A selection of university and self-directed work. (I add repo/demo links as projects are finalised.)
-          </p>
-
-          <div class="grid reveal-stagger">
-            <article class="card">
-              <h3>FitTrak — Fitness &amp; Nutrition Web App (Dissertation)</h3>
-              <p class="meta">Ionic React • TypeScript • Firebase • REST APIs</p>
-              <ul>
-                <li>Designed and developed a full-stack web application for tracking meals and workouts.</li>
-                <li>Implemented authentication and data persistence using Firebase Authentication and Firestore.</li>
-                <li>Integrated USDA FoodData Central API and OpenAI API for meal/workout suggestions.</li>
-                <li>Built reusable components with responsive layouts and robust loading/error handling.</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <h3>Taxi Dispatch Simulation (Coursework)</h3>
-              <p class="meta">Python • A* • OOP</p>
-              <ul>
-                <li>Replaced DFS with A* to improve route planning efficiency and route quality.</li>
-                <li>Modelled taxis, dispatchers, and routes using object-oriented design.</li>
-                <li>Added analytical metrics for dispatcher revenue and taxi earnings.</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <h3>ClaCloManager — Course &amp; Records Platform (Group Project)</h3>
-              <p class="meta">React • TypeScript • Git • UML</p>
-              <ul>
-                <li>Collaborated in an agile team to design and implement a course &amp; records management system.</li>
-                <li>Built core UI views (forms, tables, lists) with routing and basic state management.</li>
-                <li>Contributed to UML design, role-based access concepts, and peer code reviews.</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <h3>Machine Learning Coursework — Palmer Penguins</h3>
-              <p class="meta">Python • R • Evaluation</p>
-              <ul>
-                <li>Compared kNN vs Naïve Bayes using train/test splits and 10-fold cross-validation.</li>
-                <li>Applied normalisation and PCA; evaluated with confusion matrix, ROC, and F1 scores.</li>
-              </ul>
-            </article>
-          </div>
-        </section>
-
-        <section id="building" class="section reveal" aria-label="Currently building">
-          <h2>Building</h2>
-          <p class="lead">
-            Current self-project focused on shipping something useful with clean structure and documentation.
-          </p>
-
-          <div class="grid">
-            <div class="card">
-              <h3>Job Tracker (WIP)</h3>
-              <p class="meta">Focus: data model • UX • documentation</p>
-              <ul>
-                <li>Status pipeline (Applied → Interview → Offer)</li>
-                <li>Search + filters, notes per company, reminders/follow-ups</li>
-                <li>Basic dashboard (activity + conversion overview)</li>
-                <li>Next: CSV export, improved analytics, UX polish</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="learning" class="section reveal" aria-label="Learning goals">
-          <h2>Learning</h2>
-          <p class="lead">
-            I’m building stronger fundamentals alongside development, and expanding my toolkit steadily.
-          </p>
-
-          <div class="grid reveal-stagger">
-            <div class="card">
-              <h3>Linux &amp; Networking Fundamentals</h3>
-              <p class="meta">Home lab + daily practice</p>
-              <ul>
-                <li>Command line, permissions, processes, services, networking basics</li>
-                <li>Cert path: CompTIA Linux+ • LPIC-1 • Cisco (CCNA track)</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h3>More Front-End Frameworks</h3>
-              <p class="meta">Understanding different UI patterns</p>
-              <ul>
-                <li>Explore: Vue or Angular + component libraries</li>
-                <li>Improve testing: unit/integration + basic CI</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h3>SQL (Deeper)</h3>
-              <p class="meta">Not started properly yet</p>
-              <ul>
-                <li>Joins, indexing basics, query optimisation, modelling relationships</li>
-                <li>Practice by building CRUD features into projects</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="about" class="section reveal" aria-label="Interests and hobbies">
-          <h2>Interests</h2>
-          <p class="lead">
-            Outside of coding, I keep things simple and consistent.
-          </p>
-
-          <div class="grid">
-            <div class="card">
-              <h3>Outside of work</h3>
-              <ul>
-                <li>Fitness / gym and staying consistent</li>
-                <li>Building practical tools that solve everyday problems</li>
-                <li>Learning fundamentals (Linux, networking, systems)</li>
-                <li>Improving communication and teamwork through collaboration</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="education" class="section reveal" aria-label="Education">
-          <h2>Education</h2>
-          <p class="lead">Oxford Brookes University</p>
-
-          <div class="grid">
-            <div class="card">
-              <h3>BSc (Hons) Computer Science</h3>
-              <p class="meta">Upper Second-Class Honours (2:1) — 67% • Awarded 2025</p>
-              <ul>
-                <li>Web Development • Software Engineering • Data Structures &amp; Algorithms</li>
-                <li>Databases • Machine Learning • Advanced OOP</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="skills" class="section reveal" aria-label="Skills">
-          <h2>Skills</h2>
-          <p class="lead">A practical stack focused on shipping and iterating.</p>
-
-          <div class="grid reveal-stagger">
-            <div class="card">
-              <h3>Programming</h3>
-              <p class="meta">Core</p>
-              <ul>
-                <li>TypeScript/JavaScript, Python, Java</li>
-                <li>HTML5, CSS3, SQL (basics)</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h3>Web &amp; App Development</h3>
-              <p class="meta">Frameworks</p>
-              <ul>
-                <li>React, Ionic (React)</li>
-                <li>API integration, debugging, clean code</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h3>Backend / Data</h3>
-              <p class="meta">Tools</p>
-              <ul>
-                <li>Firebase (Auth, Firestore, Storage)</li>
-                <li>REST APIs, Postman, CLI</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h3>Data &amp; ML (Coursework)</h3>
-              <p class="meta">Foundations</p>
-              <ul>
-                <li>EDA, PCA, cross-validation</li>
-                <li>kNN, Naïve Bayes, ROC, F1</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" class="section reveal" aria-label="Contact">
-          <h2>Contact</h2>
-          <p class="lead">
-            Best way to reach me is email. You can also find me on GitHub and LinkedIn via the icons in the sidebar.
-          </p>
-          <p style="margin:0;color:var(--muted);">
-            <a href="mailto:antonio.yanchev@gmail.com?subject=Hello%20from%20your%20portfolio" style="color:var(--accent);text-decoration:none;">
-              antonio.yanchev@gmail.com
-            </a>
-          </p>
-
-          <div class="footer">© 2026 Antonio Yanchev • Last updated Jan 2026</div>
-        </section>
-      </main>
-    </div>
-  </div>
-
-  <!-- Avatar modal -->
-  <div id="avatarModal" class="modal-backdrop" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-label="Profile photo">
-      <div class="modal-header">
-        <h3 class="modal-title">Antonio Yanchev</h3>
-        <button class="close" id="closeAvatar" type="button" aria-label="Close">Close</button>
-      </div>
-      <div class="modal-body">
-        <img class="modal-img" src="/antonio.jpeg" alt="Portrait of Antonio Yanchev" />
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    // Reveal sections/cards on scroll
-    function makeVisible(el){ el.classList.add('is-visible'); }
-
-    if (!prefersReduced) {
-      const revealObserver = new IntersectionObserver((entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            makeVisible(entry.target);
-            revealObserver.unobserve(entry.target);
-          }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal,
+        .reveal-stagger > * {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
         }
-      }, { threshold: 0.15 });
+        .card,
+        .iconbtn,
+        .avatar {
+          transition: none !important;
+        }
+      }
 
-      document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
-    } else {
-      document.querySelectorAll('.reveal, .reveal-stagger').forEach(makeVisible);
-    }
+      /* ===== Avatar modal ===== */
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        padding: 18px;
+      }
+      .modal {
+        width: min(860px, 96vw);
+        height: min(86vh, 900px);
+        background: rgba(10, 14, 24, 0.96);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 14px;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+      }
+      .modal-title {
+        margin: 0;
+        font-size: 14px;
+        color: rgba(229, 231, 235, 0.92);
+        letter-spacing: 0.02em;
+      }
+      .close {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 10px;
+        color: var(--text);
+        padding: 8px 10px;
+        cursor: pointer;
+      }
+      .close:focus {
+        outline: 2px solid var(--ring);
+        outline-offset: 2px;
+      }
+      .modal-body {
+        padding: 14px;
+        overflow: auto;
+      }
+      .modal-img {
+        width: 100%;
+        height: auto;
+        border-radius: 14px;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+      }
+    </style>
+  </head>
 
-    // Active nav highlight (sidebar)
-    const navLinks = Array.from(document.querySelectorAll('nav .navlink'));
-    const sections = navLinks
-      .map(a => document.querySelector(a.getAttribute('href')))
-      .filter(Boolean);
+  <body>
+    <a class="sr-only" href="#content">Skip to content</a>
 
-    if (sections.length) {
-      const navObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            navLinks.forEach(a => a.setAttribute('aria-current', 'false'));
-            const id = '#' + entry.target.id;
-            const active = navLinks.find(a => a.getAttribute('href') === id);
-            if (active) active.setAttribute('aria-current', 'true');
-          }
+    <div class="wrap">
+      <div class="layout">
+        <!-- ===== Left sidebar ===== -->
+        <aside>
+          <div>
+            <div class="brand">
+              <img
+                id="avatar"
+                class="avatar"
+                src="/antonio.jpeg"
+                alt="Portrait of Antonio Yanchev (click to enlarge)"
+                width="68"
+                height="68"
+                loading="eager"
+              />
+              <div>
+                <div
+                  class="tagline"
+                  style="
+                    margin: 0;
+                    color: rgba(148, 163, 184, 0.95);
+                    font-size: 12px;
+                    letter-spacing: 0.12em;
+                    text-transform: uppercase;
+                  "
+                >
+                  Antonio Yanchev
+                </div>
+                <div class="role">Graduate Software Developer</div>
+              </div>
+            </div>
+
+            <h1 style="margin-top: 18px">
+              Building practical, clean web apps.
+            </h1>
+            <p class="tagline" style="margin-top: 12px">
+              Computer Science (2:1). Ionic React + TypeScript + Firebase.
+              Interested in full-stack, data, and strong fundamentals.
+            </p>
+
+            <nav aria-label="Sections">
+              <a class="navlink" href="#projects"
+                ><span class="navline"></span><span>Projects</span></a
+              >
+              <a class="navlink" href="#building"
+                ><span class="navline"></span><span>Building</span></a
+              >
+              <a class="navlink" href="#learning"
+                ><span class="navline"></span><span>Learning</span></a
+              >
+              <a class="navlink" href="#about"
+                ><span class="navline"></span><span>Interests</span></a
+              >
+              <a class="navlink" href="#education"
+                ><span class="navline"></span><span>Education</span></a
+              >
+              <a class="navlink" href="#skills"
+                ><span class="navline"></span><span>Skills</span></a
+              >
+              <a class="navlink" href="#contact"
+                ><span class="navline"></span><span>Contact</span></a
+              >
+            </nav>
+          </div>
+
+          <!-- Social icons (single place, like the example) -->
+          <div class="social" aria-label="Social links">
+            <a
+              class="iconbtn"
+              href="https://github.com/Antonio-Yanchev"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <!-- GitHub icon -->
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M9 19c-4 1.5-4-2-5-2m10 4v-3.5c0-1 .1-1.4-.5-2 2 0 4-.5 4-4 0-1-.3-2-1-2.7.1-.3.5-1.5-.1-2.7 0 0-1 0-2.8 1.2-.8-.2-1.7-.3-2.6-.3s-1.8.1-2.6.3C6.2 6.1 5.2 6.1 5.2 6.1c-.6 1.2-.2 2.4-.1 2.7C4.4 9.5 4 10.5 4 11.5c0 3.5 2 4 4 4-.4.4-.6.8-.6 1.6V21"
+                />
+              </svg>
+            </a>
+
+            <a
+              class="iconbtn"
+              href="https://www.linkedin.com/in/antonio-yanchev-00a938227/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <!-- LinkedIn icon -->
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"
+                />
+                <path d="M2 9h4v12H2z" />
+                <path d="M4 4a2 2 0 1 0 0 .01" />
+              </svg>
+            </a>
+
+            <a
+              class="iconbtn"
+              href="mailto:antonio.yanchev@gmail.com?subject=Hello%20from%20your%20portfolio"
+              aria-label="Email"
+            >
+              <!-- Mail icon -->
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 4h16v16H4z" />
+                <path d="M4 6l8 7 8-7" />
+              </svg>
+            </a>
+          </div>
+        </aside>
+
+        <!-- ===== Right content ===== -->
+        <main id="content">
+          <section id="projects" class="section reveal" aria-label="Projects">
+            <h2>Projects</h2>
+            <p class="lead">
+              A selection of university and self-directed work. (I add repo/demo
+              links as projects are finalised.)
+            </p>
+
+            <div class="grid reveal-stagger">
+              <article class="card">
+                <h3>
+                  FitTrak — Fitness &amp; Nutrition Web App (Dissertation)
+                </h3>
+                <p class="meta">
+                  Ionic React • TypeScript • Firebase • REST APIs
+                </p>
+                <ul>
+                  <li>
+                    Designed and developed a full-stack web application for
+                    tracking meals and workouts.
+                  </li>
+                  <li>
+                    Implemented authentication and data persistence using
+                    Firebase Authentication and Firestore.
+                  </li>
+                  <li>
+                    Integrated USDA FoodData Central API and OpenAI API for
+                    meal/workout suggestions.
+                  </li>
+                  <li>
+                    Built reusable components with responsive layouts and robust
+                    loading/error handling.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="card">
+                <h3>Taxi Dispatch Simulation (Coursework)</h3>
+                <p class="meta">Python • A* • OOP</p>
+                <ul>
+                  <li>
+                    Replaced DFS with A* to improve route planning efficiency
+                    and route quality.
+                  </li>
+                  <li>
+                    Modelled taxis, dispatchers, and routes using
+                    object-oriented design.
+                  </li>
+                  <li>
+                    Added analytical metrics for dispatcher revenue and taxi
+                    earnings.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="card">
+                <h3>
+                  ClaCloManager — Course &amp; Records Platform (Group Project)
+                </h3>
+                <p class="meta">React • TypeScript • Git • UML</p>
+                <ul>
+                  <li>
+                    Collaborated in an agile team to design and implement a
+                    course &amp; records management system.
+                  </li>
+                  <li>
+                    Built core UI views (forms, tables, lists) with routing and
+                    basic state management.
+                  </li>
+                  <li>
+                    Contributed to UML design, role-based access concepts, and
+                    peer code reviews.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="card">
+                <h3>Machine Learning Coursework — Palmer Penguins</h3>
+                <p class="meta">Python • R • Evaluation</p>
+                <ul>
+                  <li>
+                    Compared kNN vs Naïve Bayes using train/test splits and
+                    10-fold cross-validation.
+                  </li>
+                  <li>
+                    Applied normalisation and PCA; evaluated with confusion
+                    matrix, ROC, and F1 scores.
+                  </li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section
+            id="building"
+            class="section reveal"
+            aria-label="Currently building"
+          >
+            <h2>Building</h2>
+            <p class="lead">
+              Current self-project focused on shipping something useful with
+              clean structure and documentation.
+            </p>
+
+            <div class="grid">
+              <div class="card">
+                <h3>Job Tracker (WIP)</h3>
+                <p class="meta">Focus: data model • UX • documentation</p>
+                <ul>
+                  <li>Status pipeline (Applied → Interview → Offer)</li>
+                  <li>
+                    Search + filters, notes per company, reminders/follow-ups
+                  </li>
+                  <li>Basic dashboard (activity + conversion overview)</li>
+                  <li>Next: CSV export, improved analytics, UX polish</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section
+            id="learning"
+            class="section reveal"
+            aria-label="Learning goals"
+          >
+            <h2>Learning</h2>
+            <p class="lead">
+              I’m building stronger fundamentals alongside development, and
+              expanding my toolkit steadily.
+            </p>
+
+            <div class="grid reveal-stagger">
+              <div class="card">
+                <h3>Linux &amp; Networking Fundamentals</h3>
+                <p class="meta">Home lab + daily practice</p>
+                <ul>
+                  <li>
+                    Command line, permissions, processes, services, networking
+                    basics
+                  </li>
+                  <li>
+                    Cert path: CompTIA Linux+ • LPIC-1 • Cisco (CCNA track)
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>More Front-End Frameworks</h3>
+                <p class="meta">Understanding different UI patterns</p>
+                <ul>
+                  <li>Explore: Vue or Angular + component libraries</li>
+                  <li>Improve testing: unit/integration + basic CI</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>SQL (Deeper)</h3>
+                <p class="meta">Not started properly yet</p>
+                <ul>
+                  <li>
+                    Joins, indexing basics, query optimisation, modelling
+                    relationships
+                  </li>
+                  <li>Practice by building CRUD features into projects</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section
+            id="about"
+            class="section reveal"
+            aria-label="Interests and hobbies"
+          >
+            <h2>Interests</h2>
+            <p class="lead">
+              Outside of coding, I keep things simple and consistent.
+            </p>
+
+            <div class="grid">
+              <div class="card">
+                <h3>Outside of Work</h3>
+                <ul>
+                  <li>Football 5-a side / gym and staying consistent</li>
+                  <li>Learning fundamentals (Linux, networking, systems)</li>
+                  <li>Learning different programming languages and frameworks</li>
+                  <li>Improving communication and teamwork through collaboration</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="education" class="section reveal" aria-label="Education">
+            <h2>Education</h2>
+            <p class="lead">Oxford Brookes University</p>
+
+            <div class="grid">
+              <div class="card">
+                <h3>BSc (Hons) Computer Science</h3>
+                <p class="meta">
+                  Upper Second-Class Honours (2:1) / Awarded 2025
+                </p>
+                <ul>
+                  <li>
+                    Web Development • Software Engineering • Data Structures
+                    &amp; Algorithms
+                  </li>
+                  <li>Databases • Machine Learning • Advanced OOP</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="skills" class="section reveal" aria-label="Skills">
+            <h2>Skills</h2>
+            <p class="lead">
+              A practical stack focused on shipping and iterating.
+            </p>
+
+            <div class="grid reveal-stagger">
+              <div class="card">
+                <h3>Programming</h3>
+                <p class="meta">Core</p>
+                <ul>
+                  <li>TypeScript/JavaScript, Python, Java</li>
+                  <li>HTML5, CSS3, SQL (basics)</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>Web &amp; App Development</h3>
+                <p class="meta">Frameworks</p>
+                <ul>
+                  <li>React, Ionic (React)</li>
+                  <li>API integration, debugging, clean code</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>Backend / Data</h3>
+                <p class="meta">Tools</p>
+                <ul>
+                  <li>Firebase (Auth, Firestore, Storage)</li>
+                  <li>REST APIs, Postman, CLI</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>Data &amp; ML (Coursework)</h3>
+                <p class="meta">Foundations</p>
+                <ul>
+                  <li>EDA, PCA, cross-validation</li>
+                  <li>kNN, Naïve Bayes, ROC, F1</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="contact" class="section reveal" aria-label="Contact">
+            <h2>Contact</h2>
+            <p class="lead">
+              Best way to reach me is email. You can also find me on GitHub and
+              LinkedIn via the icons in the sidebar.
+            </p>
+            <p style="margin: 0; color: var(--muted)">
+              <a
+                href="mailto:a.yanchevv@gmail.com?subject=Hello%20from%20your%20portfolio"
+                style="color: var(--accent); text-decoration: none"
+              >
+                a.yanchevv@gmail.com
+              </a>
+            </p>
+
+            <div class="footer">
+              © 2026 Antonio Yanchev • Last updated Jan 2026
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- Avatar modal -->
+    <div id="avatarModal" class="modal-backdrop" aria-hidden="true">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Profile photo"
+      >
+        <div class="modal-header">
+          <h3 class="modal-title">Antonio Yanchev</h3>
+          <button
+            class="close"
+            id="closeAvatar"
+            type="button"
+            aria-label="Close"
+          >
+            Close
+          </button>
+        </div>
+        <div class="modal-body">
+          <img
+            class="modal-img"
+            src="/antonio.jpeg"
+            alt="Portrait of Antonio Yanchev"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const prefersReduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      // Reveal sections/cards on scroll
+      function makeVisible(el) {
+        el.classList.add("is-visible");
+      }
+
+      if (!prefersReduced) {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                makeVisible(entry.target);
+                revealObserver.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.15 },
+        );
+
+        document
+          .querySelectorAll(".reveal, .reveal-stagger")
+          .forEach((el) => revealObserver.observe(el));
+      } else {
+        document
+          .querySelectorAll(".reveal, .reveal-stagger")
+          .forEach(makeVisible);
+      }
+
+      // Active nav highlight (sidebar)
+      const navLinks = Array.from(document.querySelectorAll("nav .navlink"));
+      const sections = navLinks
+        .map((a) => document.querySelector(a.getAttribute("href")))
+        .filter(Boolean);
+
+      if (sections.length) {
+        const navObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                navLinks.forEach((a) =>
+                  a.setAttribute("aria-current", "false"),
+                );
+                const id = "#" + entry.target.id;
+                const active = navLinks.find(
+                  (a) => a.getAttribute("href") === id,
+                );
+                if (active) active.setAttribute("aria-current", "true");
+              }
+            });
+          },
+          { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 },
+        );
+
+        sections.forEach((s) => navObserver.observe(s));
+      }
+
+      // Avatar click-to-zoom modal
+      const avatar = document.getElementById("avatar");
+      const modal = document.getElementById("avatarModal");
+      const closeBtn = document.getElementById("closeAvatar");
+
+      function openModal() {
+        modal.style.display = "flex";
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        closeBtn && closeBtn.focus();
+      }
+      function closeModal() {
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      avatar && avatar.addEventListener("click", openModal);
+      closeBtn && closeBtn.addEventListener("click", closeModal);
+      modal &&
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
         });
-      }, { rootMargin: '-35% 0px -55% 0px', threshold: 0.01 });
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+    </script>
 
-      sections.forEach(s => navObserver.observe(s));
-    }
-
-    // Avatar click-to-zoom modal
-    const avatar = document.getElementById('avatar');
-    const modal = document.getElementById('avatarModal');
-    const closeBtn = document.getElementById('closeAvatar');
-
-    function openModal(){
-      modal.style.display = 'flex';
-      modal.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
-      closeBtn && closeBtn.focus();
-    }
-    function closeModal(){
-      modal.style.display = 'none';
-      modal.setAttribute('aria-hidden','true');
-      document.body.style.overflow = '';
-    }
-
-    avatar && avatar.addEventListener('click', openModal);
-    closeBtn && closeBtn.addEventListener('click', closeModal);
-    modal && modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-  </script>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Antonio Yanchev",
-    "url": "https://antonio-yanchev.github.io",
-    "jobTitle": "Graduate Software Developer",
-    "address": {"@type":"PostalAddress","addressLocality":"London","addressCountry":"UK"},
-    "email": "mailto:antonio.yanchev@gmail.com",
-    "image": "https://antonio-yanchev.github.io/antonio.jpeg",
-    "sameAs": [
-      "https://github.com/Antonio-Yanchev",
-      "https://www.linkedin.com/in/antonio-yanchev-00a938227/"
-    ],
-    "knowsAbout": [
-      "TypeScript", "JavaScript", "React", "Ionic", "Firebase",
-      "REST APIs", "Python", "Java", "SQL",
-      "Linux fundamentals", "Networking fundamentals"
-    ]
-  }
-  </script>
-</body>
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Antonio Yanchev",
+        "url": "https://antonio-yanchev.github.io",
+        "jobTitle": "Graduate Software Developer",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "London",
+          "addressCountry": "UK"
+        },
+        "email": "mailto:a.yanchevv@gmail.com",
+        "image": "https://antonio-yanchev.github.io/antonio.jpeg",
+        "sameAs": [
+          "https://github.com/Antonio-Yanchev",
+          "https://www.linkedin.com/in/antonio-yanchev-00a938227/"
+        ],
+        "knowsAbout": [
+          "TypeScript",
+          "JavaScript",
+          "React",
+          "Ionic",
+          "Firebase",
+          "REST APIs",
+          "Python",
+          "Java",
+          "SQL",
+          "Linux fundamentals",
+          "Networking fundamentals"
+        ]
+      }
+    </script>
+  </body>
 </html>
