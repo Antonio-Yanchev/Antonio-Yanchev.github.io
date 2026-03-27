@@ -32,7 +32,7 @@
     />
 
     <link rel="icon" href="/favicon.ico" />
-    <link rel="preload" as="image" href="/antonio.jpeg" />
+    <link rel="preload" as="image" href="antonio.jpeg" />
 
     <style>
       :root {
@@ -154,10 +154,11 @@
       }
 
       .avatar {
-        width: 68px;
-        height: 68px;
+        width: 82px;
+        height: 82px;
         border-radius: 999px;
         object-fit: cover;
+        object-position: center 28%;
         border: 1px solid var(--border);
         background: rgba(255, 255, 255, 0.02);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
@@ -271,9 +272,13 @@
       .section {
         padding: 18px 0 8px;
         border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        scroll-margin-top: 24px;
       }
       .section:last-of-type {
         border-bottom: 0;
+      }
+      #contact {
+        min-height: 34vh;
       }
 
       h2 {
@@ -463,10 +468,10 @@
               <img
                 id="avatar"
                 class="avatar"
-                src="/antonio.jpeg"
+                src="antonio.jpeg"
                 alt="Portrait of Antonio Yanchev (click to enlarge)"
-                width="68"
-                height="68"
+                width="82"
+                height="82"
                 loading="eager"
               />
               <div>
@@ -491,7 +496,8 @@
             </h1>
             <p class="tagline" style="margin-top: 12px">
               Computer Science (2:1). Ionic React + TypeScript + Firebase.
-              Interested in full-stack, data, and strong fundamentals.
+              Focused on full-stack development, data, and strong engineering
+              fundamentals.
             </p>
 
             <nav aria-label="Sections">
@@ -512,6 +518,9 @@
               >
               <a class="navlink" href="#skills"
                 ><span class="navline"></span><span>Skills</span></a
+              >
+              <a class="navlink" href="#contact"
+                ><span class="navline"></span><span>Contact</span></a
               >
             </nav>
           </div>
@@ -552,7 +561,7 @@
 
             <a
               class="iconbtn"
-              href="mailto:antonio.yanchev@gmail.com?subject=Hello%20from%20your%20portfolio"
+              href="mailto:a.yanchevv@gmail.com?subject=Hello%20from%20your%20portfolio"
               aria-label="Email"
             >
               <!-- Mail icon -->
@@ -569,8 +578,8 @@
           <section id="projects" class="section reveal" aria-label="Projects">
             <h2>Projects</h2>
             <p class="lead">
-              A selection of university and self-directed work. (I add repo/demo
-              links as projects are finalised.)
+              A selection of university and personal projects that demonstrate
+              practical problem-solving and clean implementation.
             </p>
 
             <div class="grid reveal-stagger">
@@ -665,8 +674,8 @@
           >
             <h2>Building</h2>
             <p class="lead">
-              Current self-project focused on shipping something useful with
-              clean structure and documentation.
+              Current personal project focused on shipping something useful with
+              a clear structure and reliable documentation.
             </p>
 
             <div class="grid">
@@ -692,8 +701,8 @@
           >
             <h2>Learning</h2>
             <p class="lead">
-              I’m building stronger fundamentals alongside development, and
-              expanding my toolkit steadily.
+              I am strengthening core fundamentals alongside development work
+              while steadily broadening my technical toolkit.
             </p>
 
             <div class="grid reveal-stagger">
@@ -722,7 +731,7 @@
 
               <div class="card">
                 <h3>SQL (Deeper)</h3>
-                <p class="meta">Not started properly yet</p>
+                <p class="meta">In progress</p>
                 <ul>
                   <li>
                     Joins, indexing basics, query optimisation, modelling
@@ -741,14 +750,15 @@
           >
             <h2>Interests</h2>
             <p class="lead">
-              Outside of coding, I keep things simple and consistent.
+              Outside of software development, I prioritise consistency and
+              continuous improvement.
             </p>
 
             <div class="grid">
               <div class="card">
                 <h3>Outside of Work</h3>
                 <ul>
-                  <li>Football 5-a side / gym and staying consistent</li>
+                  <li>Five-a-side football, gym training, and routine</li>
                   <li>Learning fundamentals (Linux, networking, systems)</li>
                   <li>Learning different programming languages and frameworks</li>
                   <li>Improving communication and teamwork through collaboration</li>
@@ -826,22 +836,26 @@
           <section id="contact" class="section reveal" aria-label="Contact">
             <h2>Contact</h2>
             <p class="lead">
-              Best way to reach me is email. You can also find me on GitHub and
-              LinkedIn via the icons in the sidebar.
+              The best way to contact me is by email. You can also find me on
+              GitHub and LinkedIn via the sidebar icons.
             </p>
-            <p style="margin: 0; color: var(--muted)">
-              <a
-                href="mailto:a.yanchevv@gmail.com?subject=Hello%20from%20your%20portfolio"
-                style="color: var(--accent); text-decoration: none"
-              >
-                a.yanchevv@gmail.com
-              </a>
-            </p>
-
-            <div class="footer">
-              © 2026 Antonio Yanchev • Last updated Jan 2026
+            <div class="grid">
+              <div class="card">
+                <h3>Email</h3>
+                <p class="meta">Open to graduate/junior software roles</p>
+                <p style="margin: 0; color: var(--muted)">
+                  <a
+                    href="mailto:a.yanchevv@gmail.com?subject=Hello%20from%20your%20portfolio"
+                    style="color: var(--accent); text-decoration: none"
+                  >
+                    a.yanchevv@gmail.com
+                  </a>
+                </p>
+              </div>
             </div>
           </section>
+
+          <footer class="footer">© 2026 Antonio Yanchev • Last updated Jan 2026</footer>
         </main>
       </div>
     </div>
@@ -868,7 +882,7 @@
         <div class="modal-body">
           <img
             class="modal-img"
-            src="/antonio.jpeg"
+            src="antonio.jpeg"
             alt="Portrait of Antonio Yanchev"
           />
         </div>
@@ -913,6 +927,13 @@
         .map((a) => document.querySelector(a.getAttribute("href")))
         .filter(Boolean);
 
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.forEach((a) => a.setAttribute("aria-current", "false"));
+          link.setAttribute("aria-current", "true");
+        });
+      });
+
       if (sections.length) {
         const navObserver = new IntersectionObserver(
           (entries) => {
@@ -929,7 +950,7 @@
               }
             });
           },
-          { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 },
+          { rootMargin: "-45% 0px -45% 0px", threshold: 0.08 },
         );
 
         sections.forEach((s) => navObserver.observe(s));
